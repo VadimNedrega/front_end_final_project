@@ -1,8 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import Carousel from "./components/Carousel";
-import Slider from "react-slick";
+import React from "react";
+import ReactDOM from "react-dom";
+import Carousel from "./components/carousel/Carousel";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
-root.render(<Slider/>, );
+ReactDOM.render(
+    <React.StrictMode>
+        <Carousel />
+    </React.StrictMode>,
+    document.getElementById("root")
+);
