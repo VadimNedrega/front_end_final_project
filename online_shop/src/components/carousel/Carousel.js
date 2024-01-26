@@ -9,13 +9,12 @@ const Carousel = () => {
         { url: "https://klassmarket.ua/image/catalog/data/home/home_slider/001/005.jpg", title: "promo5" },
     ];
     const containerStyles = {
-        width: "60%",
-        height: "600px",
+        width: "80%",
+        height: "550px",
         margin: "0 auto",
     };
     return (
         <div>
-            <h1>test</h1>
             <div style={containerStyles}>
                 <ImageSlider slides={slides} />
             </div>
