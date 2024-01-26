@@ -1,6 +1,6 @@
 ### IntelliJ IDEA ###
-.idea
-/**/.idea
+#.idea
+#/**/.idea
 
 # dependencies
 /**/node_modules
