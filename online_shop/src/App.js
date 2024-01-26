@@ -1,9 +1,8 @@
 import React from "react";
+import { Carousel } from './components/Carousel/Carousel.jsx';
 
-class App extends React.Component {
-    render() {
-        return (<div><h1>{"Our Final Project"}</h1></div>)
-    }
+export function App () {
+        return (<div>
+            <Carousel />
+        </div>)
 }
-
-export default App;

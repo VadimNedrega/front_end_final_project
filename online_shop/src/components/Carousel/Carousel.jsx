@@ -1,6 +1,7 @@
+import React from "react";
 import ImageSlider from "./imgSlider";
 
-const Carousel = () => {
+export function Carousel ()  {
     const slides = [
         { url: "https://klassmarket.ua/image/catalog/data/home/home_slider/001/001.jpg", title: "promo1" },
         { url: "https://klassmarket.ua/image/catalog/data/home/home_slider/001/002.jpg", title: "promo2" },
@@ -8,11 +9,13 @@ const Carousel = () => {
         { url: "https://klassmarket.ua/image/catalog/data/home/home_slider/001/004.jpg", title: "promo4" },
         { url: "https://klassmarket.ua/image/catalog/data/home/home_slider/001/005.jpg", title: "promo5" },
     ];
+
     const containerStyles = {
         width: "80%",
         height: "550px",
         margin: "0 auto",
     };
+
     return (
         <div>
             <div style={containerStyles}>
@@ -20,6 +23,4 @@ const Carousel = () => {
             </div>
         </div>
     );
-};
-
-export default Carousel;
+}
