@@ -1,9 +1,11 @@
 import React from "react";
+import { Footer } from "./components";
 
-class App extends React.Component {
-    render() {
-        return (<div><h1>{"Our Final Project"}</h1></div>)
-    }
+export function App () {
+    return (
+        <div>
+            <h1>Footer</h1>
+            <Footer/>
+        </div>
+    );
 }
-
-export default App;

@@ -1,0 +1,71 @@
+/* Footer.css */
+.footer-container {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: start;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-column {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.footer-column h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.address {
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    text-align: start;
+    color: #a6a5a5;
+}
+
+.address-info {
+    margin-bottom: 10px;
+    margin-top: 30px;
+    text-align: left;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.phone {
+    text-align: start;
+    font-size: 42px;
+}
+
+.footer-column p {
+    margin: 5px 0;
+}
+
+.footer-column ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: left;
+}
+
+.footer-column li {
+    margin: 15px 0;
+}
+
+.footer-column a {
+    color: #a6a5a5;
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
