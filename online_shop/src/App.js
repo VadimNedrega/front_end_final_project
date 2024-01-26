@@ -17,12 +17,4 @@ class App extends React.Component {
 
 export default App;
 
-// =======
-// import { Carousel } from './components/Carousel/Carousel.jsx'; //TODO cпросить в пн у сереги почему експорт не работает
-//
-// export function App () {
-//         return (<div>
-//             <Carousel />
-//         </div>)
-// }
-// >>>>>>> 2820ebb0ff920f56732a9546b9c4de6ac71f1de0
+
