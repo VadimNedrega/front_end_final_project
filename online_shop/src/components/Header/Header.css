@@ -1,0 +1,133 @@
+.header {
+    height: 6vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5% 1%;
+    background-color: #e1c7c7;
+    border-bottom: 1px solid #722727;
+    margin-bottom: 1vh;
+}
+
+.custom-dropdown-container {
+    position: relative;
+}
+
+.dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: block;
+}
+
+.form-control {
+    border-radius: 4px;
+    height: 4.5vh;
+    font-size: 0.9vw;
+}
+
+.dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: block;
+    background-color: #5466b4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.dropdown-list div {
+    padding: 8px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.dropdown-list div:hover {
+    background-color: #f5f5f5;
+}
+
+.product-list {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: block;
+    background-color: #8cafd5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: -0.5vw;
+    margin-left: 0.2vw;
+    z-index: 1;
+}
+
+.product-list div:hover {
+    background-color: #ece3a4;
+}
+
+.form-control{
+    width: 15vw;
+    font-size: 1.2vw
+}
+
+.row {
+    display: flex;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.col-xs-auto {
+    flex: 0 0 auto;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.btn-common {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 5vh;
+}
+
+.btn-primary {
+    width: 5vw;
+    font-size: 0.9vw;
+}
+
+.btn-secondary {
+    width: 12vw;
+    font-size: 16px;
+}
+
+.btn-third {
+    width: 5vw;
+    font-size: 0.9vw;
+    background-color: #ecbb52;
+    margin-left: 0.5vw;
+}
+
+.search-form-container {
+    margin-right: auto;
+    padding-left: 1vw;
+    width: 0px;
+}
+
+.localisation-container {
+    background-color: #dea9a9;
+    margin-right: 1%;
+    height: 50%;
+    margin-left: auto;
+}
+
+
+.cart-icon {
+    transform: scale(0.3);
+}
+
+
