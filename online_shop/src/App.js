@@ -1,8 +1,11 @@
 import React from "react";
-import { Carousel } from './components/Carousel/Carousel.jsx'; //TODO cпросить в пн у сереги почему експорт не работает
+import {Header}  from "./components"
+import { Carousel } from './components';
 
-export function App () {
-        return (<div>
-            <Carousel />
-        </div>)
+export default function App () {
+    return (<div>
+        <Header />
+        <Carousel />
+    </div>)
 }
+
