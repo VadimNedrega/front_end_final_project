@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-function SearchForm() {
+
+export function SearchForm() {
+    const [search, setSearch] = useState("");
+    console.log('SearchForm   ',{search}.search);
     return (
         <form className="form-inline">
             <div className="row">
@@ -9,10 +12,11 @@ function SearchForm() {
                         type="text"
                         className="form-control mr-sm-2"
                         placeholder="Search"
+                        onChange={(event) => setSearch(event.target.value)}
                     />
                 </div>
                 <div className="col-xs-auto">
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit" className="btn btn-common btn-primary">
                         Submit
                     </button>
                 </div>
@@ -20,5 +24,3 @@ function SearchForm() {
         </form>
     );
 }
-
-export default SearchForm;

@@ -1,15 +1,19 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import './Header.css';
-import SearchForm from './SearchForm';
-import AuthButtons from './AuthButtons';
-import '../../resources/range_of_products';
+import {SearchForm} from './SearchForm';
+import {AuthButtons} from './AuthButtons';
+import {CartIcon} from './CartIcon';
 import { rangeOfProducts } from '../../resources/range_of_products';
 
-function Header() {
+
+export function Header() {
     const [categories, setCategories] = useState([]);
     const [showDropdown, setShowDropdown] = useState(false);
     const dropdownRef = useRef(null);
+    const [hoveredCategory, setHoveredCategory] = useState('');
+    const [hoveredProducts, setHoveredProducts] = useState({});
+
 
     useEffect(() => {
         const categoriesArray = Object.keys(rangeOfProducts.categories);
@@ -19,6 +23,8 @@ function Header() {
     useEffect(() => {
         const handleMouseLeave = () => {
             setShowDropdown(false);
+            setHoveredCategory('');
+            setHoveredProducts({});
         };
 
         const refCurrent = dropdownRef.current;
@@ -34,23 +40,19 @@ function Header() {
         };
     }, [dropdownRef]);
 
-    const handleCategoryChange = (category) => {
-        if (category !== 'Products') {
-            const products = rangeOfProducts.categories[category]?.Products || [];
-            console.log('Selected Category:', category);
-            console.log(`Products of ${category}`, products);
-        }
-
-        setShowDropdown(false);
-    };
 
     const handleListItemHover = (category) => {
         if (category !== 'Products') {
-            const products = rangeOfProducts.categories[category]?.Products || [];
+            const products = rangeOfProducts.categories[category]?.Products || {};
             console.log('Selected Category:', category);
-            console.log(`Products of ${category}`, products);
+            setHoveredCategory(category);
+            setHoveredProducts(products);
         }
     };
+
+    const handleCurrentItemHover = (productKey) => {
+        console.log(productKey);
+    }
 
     const handleLanguageChange = (language) => {
         console.log('Selected Language:', language);
@@ -60,12 +62,14 @@ function Header() {
         setShowDropdown(true);
     };
 
+    const cartImageSource = 'cart.png';
+
     return (
         <div className="header bg-body-tertiary justify-content-between">
 
             <div className="custom-dropdown-container" ref={dropdownRef}>
                 <button
-                    className={`btn btn-secondary ${showDropdown ? 'active' : ''}`}
+                    className={`btn btn-common btn-secondary ${showDropdown ? 'active' : ''}`}
                     onMouseEnter={handleButtonHover}
                 >
                     Products
@@ -75,12 +79,22 @@ function Header() {
                         {categories.map((category) => (
                             <div
                                 key={category}
-                                onClick={() => handleCategoryChange(category)}
                                 onMouseEnter={() => handleListItemHover(category)}
                             >
                                 {category}
                             </div>
                         ))}
+                        {hoveredCategory !== '' && (
+                            <div className="product-list">
+                                {Object.keys(hoveredProducts).map((productKey) => (
+                                <div
+                                    key={productKey}
+                                    onClick={() => handleCurrentItemHover(productKey)}
+                                >
+                                    {productKey}</div>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 )}
             </div>
@@ -89,15 +103,15 @@ function Header() {
                 <SearchForm />
             </div>
 
-            <div className="language-selector">
-                <select onChange={(e) => handleLanguageChange(e.target.value)}>
+            <div className="localisation-container">
+                <select onChange={(event) => handleLanguageChange(event.target.value)}>
                     <option value="en">English</option>
                     <option value="ua">Ukraine</option>
                 </select>
             </div>
 
-            <div className="card-container">
-                <h4> Card </h4>
+            <div className="cart-container">
+                <CartIcon cartImageSrc={cartImageSource} />
             </div>
 
             <div className="auth-buttons-container">
@@ -108,7 +122,6 @@ function Header() {
     );
 }
 
-export default Header;
 
 
 
