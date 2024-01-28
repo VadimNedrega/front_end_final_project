@@ -7,6 +7,6 @@ export default function App () {
     return (<div>
         <Header />
         <Carousel />
-        <Footer/>
+        <Footer />
     </div>)
 }
