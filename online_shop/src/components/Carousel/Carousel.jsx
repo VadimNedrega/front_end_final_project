@@ -1,26 +1,44 @@
-import React from "react";
-import ImageSlider from "./imgSlider";
+import React, {useEffect, useState} from "react";
+import './Carousel.css'
 
-export function Carousel ()  {
-    const slides = [
-        { url: "https://klassmarket.ua/image/catalog/data/home/home_slider/001/001.jpg", title: "promo1" },
-        { url: "https://klassmarket.ua/image/catalog/data/home/home_slider/001/002.jpg", title: "promo2" },
-        { url: "https://klassmarket.ua/image/catalog/data/home/home_slider/001/003.jpg", title: "promo3" },
-        { url: "https://klassmarket.ua/image/catalog/data/home/home_slider/001/004.jpg", title: "promo4" },
-        { url: "https://klassmarket.ua/image/catalog/data/home/home_slider/001/005.jpg", title: "promo5" },
-    ];
+export const Carousel = ({images, interval = 3500}) => {
+    const [activeIndex, setActiveIndex] = useState(0);
 
-    const containerStyles = {
-        width: "80%",
-        height: "550px",
-        margin: "0 auto",
+    //Slider control button logic
+    const nextSlide = () => {
+        setActiveIndex((prevIndex) =>
+            prevIndex === images.length - 1 ? 0 : prevIndex + 1
+        );
+    };
+    const prevSlide = () => {
+        setActiveIndex((prevIndex) =>
+            prevIndex === 0 ? images.length - 1 : prevIndex - 1
+        );
     };
 
+    //Adds autoscroll to the slider
+    useEffect(() => {
+        const autoPlayInterval = setInterval(nextSlide, interval);
+        return () => {
+            clearInterval(autoPlayInterval);
+        }
+        // Webpack says me to disable this line 25, don't know the reason
+        // eslint-disable-next-line
+    }, [interval]);
     return (
-        <div>
-            <div style={containerStyles}>
-                <ImageSlider slides={slides} />
+        <div className={"container"}>
+            <div className={"carousel"}>
+                <button onClick={prevSlide} className={"carousel__btn carousel__btn--prev"}>
+                    &lt;
+                </button>
+                <img src={images[activeIndex]}
+                     alt={`Slide ${activeIndex}`}
+                     className={"carousel__img"}
+                />
+                <button onClick={nextSlide} className={"carousel__btn carousel__btn--next"}>
+                    &gt;
+                </button>
             </div>
         </div>
     );
-}
+};
