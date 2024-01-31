@@ -1,12 +1,10 @@
 .header {
-    height: 6vh;
+    height: 4vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5% 1%;
-    background-color: #e1c7c7;
-    border-bottom: 1px solid #722727;
-    margin-bottom: 1vh;
+    padding: 12px 10px;
+    background-color: #595959;
 }
 
 .custom-dropdown-container {
@@ -69,7 +67,7 @@
     background-color: #ece3a4;
 }
 
-.form-control{
+.form-control {
     width: 15vw;
     font-size: 1.2vw
 }
@@ -87,7 +85,7 @@
 }
 
 .btn-common {
-    background-color: #007bff;
+    background-color: #E73229;
     color: #fff;
     border: 1px solid #007bff;
     border-radius: 4px;
@@ -101,21 +99,21 @@
 }
 
 .btn-secondary {
-    width: 12vw;
-    font-size: 16px;
+    min-width: 8vh;
+    max-width: 16vh;
+    font-size: 20px;
 }
 
 .btn-third {
     width: 5vw;
     font-size: 0.9vw;
-    background-color: #ecbb52;
     margin-left: 0.5vw;
 }
 
 .search-form-container {
     margin-right: auto;
     padding-left: 1vw;
-    width: 0px;
+    width: 0;
 }
 
 .localisation-container {

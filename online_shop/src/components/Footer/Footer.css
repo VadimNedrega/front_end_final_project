@@ -1,20 +1,22 @@
 /* Footer.css */
-.footer-container {
-    margin: 125px 0 0 0;
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: start;
+.footer__container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 48px 0 0 0;
+    padding: 12px 20% 24px 12px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    flex-flow: row nowrap;
+    background-color: #595959;
+    color: #d3d3d3;
 }
 
-.footer-column {
-    flex: 1;
+.footer__row {
     margin-right: 20px;
 }
 
-.footer-column h2 {
+.footer__row h1 {
     font-size: 24px;
     margin-bottom: 10px;
 }
@@ -27,7 +29,7 @@
     color: #a6a5a5;
 }
 
-.address-info {
+.address__info {
     margin-bottom: 10px;
     margin-top: 30px;
     text-align: left;
@@ -36,32 +38,29 @@
 }
 
 .phone {
-    text-align: start;
-    font-size: 42px;
+    font-size: 36px;
 }
 
-.footer-column p {
+.footer__row p {
     margin: 5px 0;
 }
 
-.footer-column ul {
+.footer__row ul {
     list-style-type: none;
     padding: 0;
-    margin-top: 20px;
     font-size: 20px;
-    text-align: left;
 }
 
-.footer-column li {
-    margin: 15px 0;
+.footer__row li {
+    margin: 12px 0 0 0;
 }
 
-.footer-column a {
-    color: #a6a5a5;
+.footer__row a {
+    color: #9f9f9f;
     text-decoration: none;
 }
 
-.footer-column a:hover {
+.footer__row a:hover {
     text-decoration: underline;
 }
 

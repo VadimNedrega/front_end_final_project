@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 
 export function SearchForm() {
     const [search, setSearch] = useState("");
-    console.log('SearchForm   ',{search}.search);
+    console.log('SearchForm   ', {search}.search);
     return (
         <form className="form-inline">
             <div className="row">

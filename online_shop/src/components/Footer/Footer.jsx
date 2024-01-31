@@ -1,18 +1,18 @@
 import React from 'react';
 import './Footer.css';
 
-export function Footer () {
+export function Footer() {
     return (
-        <footer className="footer-container">
-            <div className="footer-column">
-                <h1 className="address">Гаряча лінія:</h1>
+        <footer className="footer__container">
+            <div className="footer__row">
+                <h1>Гаряча лінія:</h1>
                 <p className="phone">0 800 000 000</p>
-                <h1 className="address">Головний офіс:</h1>
-                <p className="address-info">Адреса: вул. Реактівська, 123</p>
+                <h1>Головний офіс:</h1>
+                <p className="address__info">Адреса: вул. Реактівська, 123</p>
             </div>
 
-            <div className="footer-column">
-                <h2>Покупцям</h2>
+            <div className="footer__row">
+                <h1>Покупцям</h1>
                 <ul>
                     <li><a href="#">Доставка і оплата</a></li>
                     <li><a href="#">Гарантія та повернення</a></li>
@@ -23,8 +23,8 @@ export function Footer () {
                 </ul>
             </div>
 
-            <div className="footer-column">
-                <h2>Компанія</h2>
+            <div className="footer__row">
+                <h1>Компанія</h1>
                 <ul>
                     <li><a href="#">Про нас</a></li>
                     <li><a href="#">Контакти</a></li>
@@ -32,8 +32,8 @@ export function Footer () {
                 </ul>
             </div>
 
-            <div className="footer-column">
-                <h2>Робота</h2>
+            <div className="footer__row">
+                <h1>Робота</h1>
                 <ul>
                     <li><a href="#">Вакансїї</a></li>
                     <li><a href="#">Менеджери з персоналу</a></li>

@@ -1,4 +1,4 @@
-.container {
+.carousel__container {
     margin: 45px 0 0 0;
 }
 
@@ -40,6 +40,6 @@
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 25px;
+    border-radius: 42px;
     transition: transform 0.3s ease-in-out;
 }

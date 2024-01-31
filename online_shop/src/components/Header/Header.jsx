@@ -1,10 +1,9 @@
-
-import React, { useState, useEffect, useRef } from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import './Header.css';
 import {SearchForm} from './SearchForm';
 import {AuthButtons} from './AuthButtons';
 import {CartIcon} from './CartIcon';
-import { rangeOfProducts } from '../../resources/range_of_products';
+import {rangeOfProducts} from '../../resources/range_of_products';
 
 
 export function Header() {
@@ -62,11 +61,10 @@ export function Header() {
         setShowDropdown(true);
     };
 
-    const cartImageSource = 'cart.png';
+    const cartImageSource = "./shopping-cart.png";
 
     return (
         <div className="header bg-body-tertiary justify-content-between">
-
             <div className="custom-dropdown-container" ref={dropdownRef}>
                 <button
                     className={`btn btn-common btn-secondary ${showDropdown ? 'active' : ''}`}
@@ -87,37 +85,33 @@ export function Header() {
                         {hoveredCategory !== '' && (
                             <div className="product-list">
                                 {Object.keys(hoveredProducts).map((productKey) => (
-                                <div
-                                    key={productKey}
-                                    onClick={() => handleCurrentItemHover(productKey)}
-                                >
-                                    {productKey}</div>
+                                    <div
+                                        key={productKey}
+                                        onClick={() => handleCurrentItemHover(productKey)}
+                                    >
+                                        {productKey}
+                                    </div>
                                 ))}
                             </div>
                         )}
                     </div>
                 )}
             </div>
-
             <div className="search-form-container">
-                <SearchForm />
+                <SearchForm/>
             </div>
-
             <div className="localisation-container">
                 <select onChange={(event) => handleLanguageChange(event.target.value)}>
-                    <option value="en">English</option>
-                    <option value="ua">Ukraine</option>
+                    <option value="en">EN</option>
+                    <option value="ua">UA</option>
                 </select>
             </div>
-
             <div className="cart-container">
-                <CartIcon cartImageSrc={cartImageSource} />
+                <CartIcon cartImageSrc={cartImageSource}/>
             </div>
-
             <div className="auth-buttons-container">
-                <AuthButtons />
+                <AuthButtons/>
             </div>
-
         </div>
     );
 }
