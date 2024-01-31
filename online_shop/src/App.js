@@ -3,6 +3,7 @@ import { Header }  from "./components"
 import { Carousel } from './components';
 import { Footer } from "./components";
 
+
 export function App () {
     const images = [
         'https://klassmarket.ua/image/catalog/data/home/home_slider/001/001.jpg',
