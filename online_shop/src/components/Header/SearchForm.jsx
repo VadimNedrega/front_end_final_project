@@ -11,13 +11,13 @@ export function SearchForm() {
                     <input
                         type="text"
                         className="form-control mr-sm-2"
-                        placeholder="Search"
+                        placeholder="Пошук"
                         onChange={(event) => setSearch(event.target.value)}
                     />
                 </div>
                 <div className="col-xs-auto">
                     <button type="submit" className="btn btn-common btn-primary">
-                        Submit
+                        Підтвердити
                     </button>
                 </div>
             </div>

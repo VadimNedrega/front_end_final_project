@@ -14,7 +14,7 @@ export function Footer() {
             <div className="footer__row">
                 <h1>Покупцям</h1>
                 <ul>
-                    <li><a href="#">Доставка і оплата</a></li>
+                    <li><a href="/products">Доставка і оплата</a></li>
                     <li><a href="#">Гарантія та повернення</a></li>
                     <li><a href="#">Знижки та акції</a></li>
                     <li><a href="#">Програма лояльності</a></li>
