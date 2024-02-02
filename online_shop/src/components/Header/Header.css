@@ -93,6 +93,16 @@
     height: 5vh;
 }
 
+.btn__home {
+    background-color: darkgreen;
+    margin-right: 10px;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 5vh;
+}
+
 .btn-primary {
     width: 7vw;
     font-size: 0.9vw;
