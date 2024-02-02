@@ -1,7 +1,6 @@
 import React from "react";
-import { Header }  from "./components"
-import { Carousel } from './components';
-import { Footer } from "./components";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {Header, Carousel, Footer, LoginForm, RegistrationForm} from "./components"
 
 
 export function App () {
@@ -16,9 +15,42 @@ export function App () {
         'https://klassmarket.ua/image/catalog/data/home/home_slider/001/008.jpg',
         'https://klassmarket.ua/image/catalog/data/home/home_slider/001/009.jpg',
         ];
-    return (<div>
-        <Header />
-        <Carousel images={images} />
-        <Footer />
-    </div>)
+    return (
+        <Router>
+            <div>
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <div>
+                                <Header/>
+                                <Carousel images={images}/>
+                                <Footer/>
+                            </div>
+                        }
+                    />
+                    <Route
+                        path="/login"
+                        element={
+                            <div>
+                                <Header/>
+                                <LoginForm/>
+                                <Footer/>
+                            </div>
+                        }
+                    />
+                    <Route
+                        path="/registration"
+                        element={
+                            <div>
+                                <Header/>
+                                <RegistrationForm/>
+                                <Footer/>
+                            </div>
+                        }
+                    />
+                </Routes>
+            </div>
+        </Router>
+    );
 }
