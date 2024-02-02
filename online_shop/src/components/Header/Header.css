@@ -93,8 +93,18 @@
     height: 5vh;
 }
 
+.btn__home {
+    background-color: darkgreen;
+    margin-right: 10px;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 5vh;
+}
+
 .btn-primary {
-    width: 7vw;
+    width: 5vw;
     font-size: 0.9vw;
 }
 
@@ -105,7 +115,7 @@
 }
 
 .btn-third {
-    width: 7vw;
+    width: 5vw;
     font-size: 0.9vw;
     margin-left: 0.5vw;
 }
@@ -126,6 +136,15 @@
 
 .cart-icon {
     transform: scale(0.3);
+}
+
+.home_button {
+    background-color: #E73229;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 5vh;
 }
 
 

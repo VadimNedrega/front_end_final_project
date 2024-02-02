@@ -66,11 +66,21 @@ export function Header() {
         setShowDropdown(true);
     };
 
+    const handleHomeClick = () => {
+        navigate('/');
+    };
+
     const cartImageSource = "./shopping-cart.png";
 
     return (
         <div className="header bg-body-tertiary justify-content-between">
             <div className="custom-dropdown-container" ref={dropdownRef}>
+                <button
+                    className={`btn btn__home btn-secondary ${showDropdown ? 'active' : ''}`}
+                    onClick={handleHomeClick}
+                >
+                    Головна
+                </button>
                 <button
                     className={`btn btn-common btn-secondary ${showDropdown ? 'active' : ''}`}
                     onMouseEnter={handleButtonHover}
