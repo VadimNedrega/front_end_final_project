@@ -1,7 +1,7 @@
 import React from "react";
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import {Header, Carousel, Footer, LoginForm, RegistrationForm} from "./components"
-
+import { Header }  from "./components"
+import { Carousel } from './components';
+import { Footer } from "./components";
 
 export function App () {
     const images = [
@@ -15,42 +15,9 @@ export function App () {
         'https://klassmarket.ua/image/catalog/data/home/home_slider/001/008.jpg',
         'https://klassmarket.ua/image/catalog/data/home/home_slider/001/009.jpg',
         ];
-    return (
-        <Router>
-            <div>
-                <Routes>
-                    <Route
-                        path="/"
-                        element={
-                            <div>
-                                <Header/>
-                                <Carousel images={images}/>
-                                <Footer/>
-                            </div>
-                        }
-                    />
-                    <Route
-                        path="/login"
-                        element={
-                            <div>
-                                <Header/>
-                                <LoginForm/>
-                                <Footer/>
-                            </div>
-                        }
-                    />
-                    <Route
-                        path="/registration"
-                        element={
-                            <div>
-                                <Header/>
-                                <RegistrationForm/>
-                                <Footer/>
-                            </div>
-                        }
-                    />
-                </Routes>
-            </div>
-        </Router>
-    );
+    return (<div>
+        <Header />
+        <Carousel images={images} />
+        <Footer />
+    </div>)
 }

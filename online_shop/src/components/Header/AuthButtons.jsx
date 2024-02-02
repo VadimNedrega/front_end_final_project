@@ -15,10 +15,10 @@ export function AuthButtons() {
     return (
         <div className="auth-buttons">
             <button className="btn btn-common btn-primary" onClick={handleSignIn}>
-                Sign In
+                Увійти
             </button>
             <button className="btn btn-common btn-third" onClick={handleSignUp}>
-                Sign Up
+                Реєстрація
             </button>
         </div>
     );

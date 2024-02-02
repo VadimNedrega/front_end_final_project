@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Header.css';
 import {SearchForm} from './SearchForm';
 import {AuthButtons} from './AuthButtons';
@@ -12,6 +13,8 @@ export function Header() {
     const dropdownRef = useRef(null);
     const [hoveredCategory, setHoveredCategory] = useState('');
     const [hoveredProducts, setHoveredProducts] = useState({});
+//    const [hoveredProductKey, setHoveredProductKey] = useState('');
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -51,6 +54,8 @@ export function Header() {
 
     const handleCurrentItemHover = (productKey) => {
         console.log(productKey);
+//        setHoveredProductKey(productKey);
+        navigate(`/products/${productKey}`);
     }
 
     const handleLanguageChange = (language) => {
@@ -61,16 +66,26 @@ export function Header() {
         setShowDropdown(true);
     };
 
+    const handleHomeClick = () => {
+        navigate('/');
+    };
+
     const cartImageSource = "./shopping-cart.png";
 
     return (
         <div className="header bg-body-tertiary justify-content-between">
             <div className="custom-dropdown-container" ref={dropdownRef}>
                 <button
+                    className={`btn btn__home btn-secondary ${showDropdown ? 'active' : ''}`}
+                    onClick={handleHomeClick}
+                >
+                    Головна
+                </button>
+                <button
                     className={`btn btn-common btn-secondary ${showDropdown ? 'active' : ''}`}
                     onMouseEnter={handleButtonHover}
                 >
-                    Products
+                    Товари
                 </button>
                 {showDropdown && (
                     <div className="dropdown-list">
