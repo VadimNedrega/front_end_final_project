@@ -25,11 +25,11 @@ export const Products = () => {
     return (
         <div>
             <Header />
-            <div className="product-details">
-                <div className="product-image">
+            <div className="product__container">
+                <div className="product__image">
                     <img src={image} alt={productKey} />
                 </div>
-                <div className="product-info">
+                <div className="product__info">
                     <h2>{productKey}</h2>
                     <table>
                         <thead>
@@ -48,12 +48,12 @@ export const Products = () => {
                         </tbody>
                     </table>
                     <p>Price: {Price}</p>
-                    <div className="product-buttons">
-                        <button className="btn-common btn-primary btn-item"
-                                onClick={() => navigate('/')}>Home
+                    <div className="product__buttons">
+                        <button className="header__btn_common header__btn-primary product__btn-item"
+                                onClick={() => navigate('/')}>Головна
                         </button>
-                        <button className="btn-common btn-third btn-item"
-                                onClick={() => navigate('/cart')}>Cart
+                        <button className="header__btn_common header__btn-third product__btn-item"
+                                onClick={() => navigate('/cart')}>Кошик
                         </button>
                     </div>
                 </div>

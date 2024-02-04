@@ -13,11 +13,11 @@ export function AuthButtons() {
     };
 
     return (
-        <div className="auth-buttons">
-            <button className="btn btn-common btn-primary" onClick={handleSignIn}>
+        <div className="authbuttons">
+            <button className="header__btn header__btn_common header__btn_primary" onClick={handleSignIn}>
                 Увійти
             </button>
-            <button className="btn btn-common btn-third" onClick={handleSignUp}>
+            <button className="header__btn header__btn_common header__btn_third" onClick={handleSignUp}>
                 Реєстрація
             </button>
         </div>

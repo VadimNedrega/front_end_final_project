@@ -5,18 +5,18 @@ export function SearchForm() {
     const [search, setSearch] = useState("");
     console.log('SearchForm   ', {search}.search);
     return (
-        <form className="form-inline">
-            <div className="row">
-                <div className="col-xs-auto">
+        <form className="header__search_form">
+            <div className="header__search_form__row">
+                <div className="header__search_form__col">
                     <input
                         type="text"
-                        className="form-control mr-sm-2"
+                        className="header__search_form__form_control"
                         placeholder="Пошук"
                         onChange={(event) => setSearch(event.target.value)}
                     />
                 </div>
-                <div className="col-xs-auto">
-                    <button type="submit" className="btn btn-common btn-primary">
+                <div className="header__search_form__col">
+                    <button type="submit" className="header__btn header__btn_common header__btn_primary">
                         Підтвердити
                     </button>
                 </div>

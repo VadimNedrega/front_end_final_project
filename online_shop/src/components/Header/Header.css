@@ -7,24 +7,11 @@
     background-color: #595959;
 }
 
-.custom-dropdown-container {
+.header__dropdown_container {
     position: relative;
 }
 
-.dropdown-list {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    display: block;
-}
-
-.form-control {
-    border-radius: 4px;
-    height: 4.5vh;
-    font-size: 0.9vw;
-}
-
-.dropdown-list {
+.header__dropdown_list {
     position: absolute;
     top: 100%;
     left: 0;
@@ -36,7 +23,7 @@
     z-index: 1;
 }
 
-.dropdown-list div {
+.header__dropdown_list div {
     padding: 8px;
     font-size: 24px;
     color: #333;
@@ -45,11 +32,11 @@
     white-space: nowrap;
 }
 
-.dropdown-list div:hover {
+.header__dropdown_list div:hover {
     background-color: #f5f5f5;
 }
 
-.product-list {
+.header__product_list {
     position: absolute;
     top: 0;
     left: 100%;
@@ -63,28 +50,30 @@
     z-index: 1;
 }
 
-.product-list div:hover {
+.header__product_list div:hover {
     background-color: #ece3a4;
 }
 
-.form-control {
+.header__search_form__form_control {
     width: 15vw;
+    border-radius: 4px;
+    height: 4.5vh;
     font-size: 1.2vw
 }
 
-.row {
+.header__search_form__row {
     display: flex;
     margin-left: -5px;
     margin-right: -5px;
 }
 
-.col-xs-auto {
+.header__search_form__col {
     flex: 0 0 auto;
     padding-left: 5px;
     padding-right: 5px;
 }
 
-.btn-common {
+.header__btn_common {
     background-color: #E73229;
     color: #fff;
     border: 1px solid #007bff;
@@ -93,7 +82,7 @@
     height: 5vh;
 }
 
-.btn__home {
+.header__btn_home {
     background-color: darkgreen;
     margin-right: 10px;
     color: #fff;
@@ -103,30 +92,30 @@
     height: 5vh;
 }
 
-.btn-primary {
+.header__btn_primary {
     width: 7vw;
     font-size: 0.9vw;
 }
 
-.btn-secondary {
+.header__btn_secondary {
     min-width: 8vh;
     max-width: 16vh;
     font-size: 20px;
 }
 
-.btn-third {
+.header__btn_third {
     width: 7vw;
     font-size: 0.9vw;
     margin-left: 0.5vw;
 }
 
-.search-form-container {
+.header__search_form {
     margin-right: auto;
     padding-left: 1vw;
     width: 0;
 }
 
-.localisation-container {
+.header__localisation {
     background-color: #dea9a9;
     margin-right: 1%;
     height: 50%;
