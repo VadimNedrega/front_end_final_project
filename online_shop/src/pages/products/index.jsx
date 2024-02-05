@@ -22,6 +22,13 @@ export const Products = () => {
 
     const { image, ItemCharacteristics, Price } = productDetails;
 
+    const handleAddToCart = () => {
+        navigate(`/cart?
+            productKey=${productKey}&price=${Price}&image=${image}`
+        );
+    };
+
+
     return (
         <div>
             <Header />
@@ -53,7 +60,9 @@ export const Products = () => {
                                 onClick={() => navigate('/')}>Головна
                         </button>
                         <button className="header__btn_common header__btn-third product__btn-item"
-                                onClick={() => navigate('/cart')}>Кошик
+                                // onClick={() => navigate('/cart')}
+                                onClick={handleAddToCart}
+                        >Додати в кошик
                         </button>
                     </div>
                 </div>
