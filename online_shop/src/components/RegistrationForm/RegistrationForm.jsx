@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import "./RegistrationForm.css"
 import {FaUser, FaLock} from "react-icons/fa";
 import {HomeButton} from "../HomeButton";
+import {Header} from "../Header";
+import {Footer} from "../Footer";
 
 export function RegistrationForm() {
     const buttonName = "Register";
@@ -34,36 +36,40 @@ export function RegistrationForm() {
     };
 
     return (
-        <div className="wrapper-container">
-            <div className="wrapper">
-                <form onSubmit={handleSubmit}>
-                    <h1>Registration</h1>
-                    <div className="input-box">
-                        <input
-                            type="text"
-                            placeholder="email address"
-                            value={email}
-                            onChange={handleEmailChange}
-                            required
-                        />
-                        <FaUser className="icon"/>
-                    </div>
-                    <div className="input-box">
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            value={password}
-                            onChange={handlePasswordChange}
-                            required
-                        />
-                        <FaLock className="icon"/>
-                    </div>
-                    {passwordError && <p className="error-message">{passwordError}</p>}
-                    <button type="submit">
-                        <HomeButton buttonName={buttonName}/>
-                    </button>
-                </form>
+        <div>
+            <Header/>
+            <div className="wrapper-container">
+                <div className="wrapper">
+                    <form onSubmit={handleSubmit}>
+                        <h1>Registration</h1>
+                        <div className="input-box">
+                            <input
+                                type="text"
+                                placeholder="email address"
+                                value={email}
+                                onChange={handleEmailChange}
+                                required
+                            />
+                            <FaUser className="icon"/>
+                        </div>
+                        <div className="input-box">
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                value={password}
+                                onChange={handlePasswordChange}
+                                required
+                            />
+                            <FaLock className="icon"/>
+                        </div>
+                        {passwordError && <p className="error-message">{passwordError}</p>}
+                        <button type="submit">
+                            <HomeButton buttonName={buttonName}/>
+                        </button>
+                    </form>
+                </div>
             </div>
+            <Footer/>
         </div>
     )
 }
