@@ -1,10 +1,17 @@
 
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 
-const TdCart = ({ productKey, image, qCount, price }) => {
-    const [quantityCount, setQuantityCount] = useState(parseInt(qCount));
-    console.log('qCount = ', qCount);
-    console.log('quantityCount = ', quantityCount);
+export const TdCart = ({ productKey, image, price, quantityCount, setQuantityCount }) => {
+
+    useEffect(() => {
+        const cartData = {
+            productKey,
+            quantityCount,
+            price,
+            image,
+        };
+        localStorage.setItem(`cartData_${productKey}`, JSON.stringify(cartData));
+    }, [productKey, quantityCount, price, image]);
 
     return (
         <tr className="cart__item__row">
@@ -46,4 +53,3 @@ const TdCart = ({ productKey, image, qCount, price }) => {
     );
 };
 
-export default TdCart;

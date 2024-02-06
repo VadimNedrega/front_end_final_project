@@ -6,7 +6,6 @@
 
 .cart__item img {
     width: 5vw;
-    /*padding-left: 5vw;*/
 }
 .cart__item_text{
     display: flex;
@@ -60,4 +59,21 @@
     margin-right: 0.5vw;
     margin-left: 0.5vw;
 
+}
+
+.cart__item_btn_group {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+.cart__item_btn {
+    background-color: #586fd2;
+    font-size: 1.2vw;
+    color: rgb(248, 245, 245);
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    height: 6vh;
+    width: 20vw;
+    margin: 0 5px;
 }

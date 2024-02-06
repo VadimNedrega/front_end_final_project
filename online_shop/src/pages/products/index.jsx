@@ -3,6 +3,7 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Footer, Header } from '../../components';
 import { rangeOfProducts } from '../../resources/range_of_products';
+import {ROUTE} from '../../router';
 import './products.css';
 
 export const Products = () => {
@@ -22,7 +23,7 @@ export const Products = () => {
     const { image, ItemCharacteristics, Price } = productDetails;
 
     const handleAddToCart = () => {
-        navigate(`/cart?productKey=${productKey}&price=${Price}&image=${image}`);
+        navigate(`${ROUTE.CART}?productKey=${productKey}&price=${Price}&image=${image}`);
     };
 
 
@@ -55,7 +56,7 @@ export const Products = () => {
                     <p>Price: {Price}</p>
                     <div className="product__buttons">
                         <button className="header__btn_common header__btn-primary product__btn-item"
-                                onClick={() => navigate('/')}>Головна
+                                onClick={() => navigate(ROUTE.HOME)}>Головна
                         </button>
                         <button className="header__btn_common header__btn-third product__btn-item"
                                 onClick={handleAddToCart}

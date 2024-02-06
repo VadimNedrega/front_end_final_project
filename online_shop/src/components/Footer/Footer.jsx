@@ -14,30 +14,30 @@ export function Footer() {
             <div className="footer__row">
                 <h1>Покупцям</h1>
                 <ul>
-                    <li><a href="/">Доставка і оплата</a></li>
-                    <li><a href="/">Гарантія та повернення</a></li>
-                    <li><a href="/">Знижки та акції</a></li>
-                    <li><a href="/">Програма лояльності</a></li>
-                    <li><a href="/">Подарункові карти</a></li>
-                    <li><a href="/">Партнери</a></li>
+                    <li><a href="#">Доставка і оплата</a></li>
+                    <li><a href="#">Гарантія та повернення</a></li>
+                    <li><a href="#">Знижки та акції</a></li>
+                    <li><a href="#">Програма лояльності</a></li>
+                    <li><a href="#">Подарункові карти</a></li>
+                    <li><a href="#">Партнери</a></li>
                 </ul>
             </div>
 
             <div className="footer__row">
                 <h1>Компанія</h1>
                 <ul>
-                    <li><a href="/">Про нас</a></li>
-                    <li><a href="/">Контакти</a></li>
-                    <li><a href="/">Кар'єра</a></li>
+                    <li><a href="#">Про нас</a></li>
+                    <li><a href="#">Контакти</a></li>
+                    <li><a href="#">Кар'єра</a></li>
                 </ul>
             </div>
 
             <div className="footer__row">
                 <h1>Робота</h1>
                 <ul>
-                    <li><a href="/">Вакансїї</a></li>
-                    <li><a href="/">Менеджери з персоналу</a></li>
-                    <li><a href="/">Історії успіху</a></li>
+                    <li><a href="#">Вакансїї</a></li>
+                    <li><a href="#">Менеджери з персоналу</a></li>
+                    <li><a href="#">Історії успіху</a></li>
                 </ul>
             </div>
         </footer>

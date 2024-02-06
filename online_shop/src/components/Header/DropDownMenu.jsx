@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { rangeOfProducts } from "../../resources/range_of_products";
+import {ROUTE} from '../../router';
 
 export function DropDownMenu({ categories }) {
     const [showDropdown, setShowDropdown] = useState(false);
@@ -49,7 +50,7 @@ export function DropDownMenu({ categories }) {
     };
 
     const handleHomeClick = () => {
-        navigate("/");
+        navigate(ROUTE.HOME);
     };
 
     return (
