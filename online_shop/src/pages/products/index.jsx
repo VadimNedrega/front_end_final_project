@@ -9,7 +9,6 @@ export const Products = () => {
     const { productKey } = useParams();
     const navigate = useNavigate();
     const productDetails = getProductDetails(productKey);
-
     if (!productDetails) {
         return (
             <div>
@@ -23,10 +22,9 @@ export const Products = () => {
     const { image, ItemCharacteristics, Price } = productDetails;
 
     const handleAddToCart = () => {
-        navigate(`/cart?
-            productKey=${productKey}&price=${Price}&image=${image}`
-        );
+        navigate(`/cart?productKey=${productKey}&price=${Price}&image=${image}`);
     };
+
 
 
     return (
@@ -60,7 +58,6 @@ export const Products = () => {
                                 onClick={() => navigate('/')}>Головна
                         </button>
                         <button className="header__btn_common header__btn-third product__btn-item"
-                                // onClick={() => navigate('/cart')}
                                 onClick={handleAddToCart}
                         >Додати в кошик
                         </button>

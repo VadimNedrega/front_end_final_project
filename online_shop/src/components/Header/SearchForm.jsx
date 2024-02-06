@@ -3,7 +3,8 @@ import React, {useState} from 'react';
 
 export function SearchForm() {
     const [search, setSearch] = useState("");
-    console.log('SearchForm   ', {search}.search);
+//    console.log('SearchForm   ', {search}.search);
+    const searchMessage = search ? <p>You entered: {search}</p> : null; // Simulate usage
     return (
         <form className="header__search_form">
             <div className="header__search_form__row">
@@ -21,6 +22,7 @@ export function SearchForm() {
                     </button>
                 </div>
             </div>
+            {searchMessage} {/* Simulate usage */}
         </form>
     );
 }
