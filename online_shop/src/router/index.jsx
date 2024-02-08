@@ -27,12 +27,12 @@ export const AppRouter = () => {
                 <Route path={ROUTE.PRODUCTS} element={<Products />} />
                 <Route path={ROUTE.PRODUCT_CURRENT} element={<Products />} />
                 <Route path={ROUTE.CART} element={<Cart />} />
-                <Route path="/login" element={<LoginForm />} />
-                <Route path="/registration" element={<RegistrationForm />} />
-                <Route path="/delivery" element={<DeliveryPage />} />
-                <Route path="/warranty" element={<WarrantyPage />} />
-                <Route path="/loyalty" element={<LoyaltyPage />} />
-                <Route path="/giftCards" element={<GiftCardsPage />} />
+                <Route path={ROUTE.LOGIN} element={<LoginForm />} />
+                <Route path={ROUTE.REGISTRATION} element={<RegistrationForm />} />
+                <Route path={ROUTE.DELIVERY} element={<DeliveryPage />} />
+                <Route path={ROUTE.WARRANTY} element={<WarrantyPage />} />
+                <Route path={ROUTE.LOYALTY} element={<LoyaltyPage />} />
+                <Route path={ROUTE.GIFTCARDS} element={<GiftCardsPage />} />
             </Routes>
         </Router>
     );

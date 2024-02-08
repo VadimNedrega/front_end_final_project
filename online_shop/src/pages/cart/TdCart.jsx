@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 
-export const TdCart = ({ productKey, image, price, quantityCount, setQuantityCount }) => {
+export const TdCart = ({ productKey, image, price, quantityCount, setQuantityCount, onDelete}) => {
 
     useEffect(() => {
         const cartData = {
@@ -14,16 +14,16 @@ export const TdCart = ({ productKey, image, price, quantityCount, setQuantityCou
     }, [productKey, quantityCount, price, image]);
 
     return (
-        <tr className="cart__item__row">
-            <td className="cart__item_img">
+        <tr className="cart__table_row">
+            <td className="cart__table_img">
                 <img src={image} alt={productKey} />
             </td>
-            <td className="cart__item_product_key">
+            <td className="cart__table_product_key">
                 {productKey}
             </td>
-            <td className="cart__item_product_quantity">
-                <div className="cart__item_text cart__item_quantity">
-                    <button className="cart__item_quantity_btn"
+            <td className="cart__table_product">
+                <div className="cart__table_text">
+                    <button className="cart__table_quantity_btn"
                             onClick={() => {
                                 if (quantityCount > 1) {
                                     setQuantityCount(quantityCount - 1);
@@ -34,20 +34,22 @@ export const TdCart = ({ productKey, image, price, quantityCount, setQuantityCou
                     <p>
                         {quantityCount}
                     </p>
-                    <button className="cart__item_quantity_btn"
+                    <button className="cart__table_quantity_btn"
                             onClick={() => setQuantityCount(quantityCount + 1)}
                     > +
                     </button>
                 </div>
             </td>
-            <td className="cart__item_product_price">
+            <td className="cart__table_product_price">
                 {price}
             </td>
-            <td className="cart__item_product_total">
+            <td className="cart__table_product_total">
                 {quantityCount * parseInt(price)}
             </td>
-            <td className="cart__item_product_delete">
-                <button className="cart__item_delete_btn"> Видалити </button>
+            <td className="cart__table_product_delete">
+                <button className="cart__table_delete_btn"
+                        onClick={() => onDelete(productKey)}> Видалити
+                </button>
             </td>
         </tr>
     );

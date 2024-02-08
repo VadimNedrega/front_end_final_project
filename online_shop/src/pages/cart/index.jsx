@@ -13,21 +13,20 @@ export const Cart = () => {
     const productKey = queryParams.get('productKey');
     const price = queryParams.get('price');
     const image = queryParams.get('image');
-    // eslint-disable-next-line
-    const [quantityCount, setQuantityCount] = useState(1);
     const [cartItems, setCartItems] = useState([]);
+    const [totalSum, setTotalSum] = useState(0);
 
     useEffect(() => {
-        if (productKey && quantityCount && price && image) {
+        if (productKey && price && image) {
             const cartData = {
                 productKey,
-                quantityCount,
+                quantityCount: 1,
                 price,
                 image,
             };
             localStorage.setItem(`cartData_${productKey}`, JSON.stringify(cartData));
         }
-    }, [productKey, quantityCount, price, image]);
+    }, [productKey, price, image]);
 
     useEffect(() => {
         const keys = Object.keys(localStorage).filter(key => key.includes('cartData'));
@@ -35,18 +34,30 @@ export const Cart = () => {
         setCartItems(items);
     }, []);
 
+    useEffect(() => {
+        const sum = cartItems.reduce((acc, item) => acc + (item.quantityCount * parseInt(item.price)), 0);
+        setTotalSum(sum);
+    }, [cartItems]);
+
+    const handleDelete = (deletedProductKey) => {
+        const updatedItems = cartItems.filter(item => item.productKey !== deletedProductKey);
+        setCartItems(updatedItems);
+        localStorage.removeItem(`cartData_${deletedProductKey}`);
+    };
+
+
     return (
         <div>
             <Header />
-            <div className="cart__item">
+            <div className="cart">
                 <table className="cart__table">
                     <thead>
-                    <tr className="cart__item__row">
+                    <tr className="cart__table_row">
                         <th>  </th>
-                        <th className="cart__item_product_key">Product</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Total</th>
+                        <th className="cart__table_product_key">Найменування товару</th>
+                        <th className="cart__table_quantity">Кількість</th>
+                        <th>Ціна</th>
+                        <th>Сума</th>
                         <th>  </th>
                     </tr>
                     </thead>
@@ -63,10 +74,14 @@ export const Cart = () => {
                                 updatedItems[index].quantityCount = quantity;
                                 setCartItems(updatedItems);
                             }}
+                            onDelete={handleDelete}
                         />
                     ))}
                     </tbody>
                 </table>
+                <div className="cart__table_total_amount">
+                    Разом усі товари: {totalSum}
+                </div>
                 <div className="cart__item_btn_group">
                     <button className="cart__item_btn"
                             onClick={() => navigate(ROUTE.HOME)}>

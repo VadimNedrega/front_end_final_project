@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import {ROUTE} from '../../router';
 
 export function Footer() {
     return (
@@ -14,10 +15,10 @@ export function Footer() {
             <div className="footer__row">
                 <h1>Покупцям</h1>
                 <ul>
-                    <li><a href="/delivery">Доставка і оплата</a></li>
-                    <li><a href="/warranty">Гарантія та повернення</a></li>
-                    <li><a href="/loyalty">Програма лояльності</a></li>
-                    <li><a href="/giftCards">Подарункові карти</a></li>
+                    <li><a href={ROUTE.DELIVERY}>Доставка і оплата</a></li>
+                    <li><a href={ROUTE.WARRANTY}>Гарантія та повернення</a></li>
+                    <li><a href={ROUTE.LOYALTY}>Програма лояльності</a></li>
+                    <li><a href={ROUTE.GIFTCARDS}>Подарункові карти</a></li>
                 </ul>
             </div>
 
