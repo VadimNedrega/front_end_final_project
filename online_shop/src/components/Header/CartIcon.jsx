@@ -2,12 +2,18 @@ import React from 'react';
 
 export const CartIcon = ({cartImageSrc}) => {
     const handleCartClick = () => {
-        window.location.href = '/#';
+        window.location.href = '/cart';
     };
 
     return (
-        <a href="/#" onClick={handleCartClick}>
-            <img height={'24px'} width={'24px'} src={cartImageSrc} alt="Cart" className="cart-icon"/>
+        <a href="/cart" onClick={handleCartClick}>
+            <img
+                width="70px"
+                height="auto"
+                src={cartImageSrc}
+                alt="Cart"
+                className="cart-icon"
+            />
         </a>
     );
 };

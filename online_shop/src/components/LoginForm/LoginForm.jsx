@@ -4,6 +4,7 @@ import {FaUser, FaLock} from "react-icons/fa";
 import {HomeButton} from "../HomeButton";
 import {Header} from "../Header";
 import {Footer} from "../Footer";
+import {ROUTE} from '../../router';
 
 export function LoginForm() {
     const buttonName = "Login";
@@ -34,7 +35,7 @@ export function LoginForm() {
                         </button>
 
                         <div className="register-link">
-                            <p>Don't have an account? <a href="/registration">Register</a></p>
+                            <p>Don't have an account? <a href={ROUTE.REGISTRATION}>Register</a></p>
                         </div>
                     </form>
                 </div>

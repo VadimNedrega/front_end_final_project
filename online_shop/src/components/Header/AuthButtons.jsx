@@ -1,23 +1,24 @@
 import React from 'react';
+import {ROUTE} from '../../router';
 import { useNavigate  } from 'react-router-dom';
 
 export function AuthButtons() {
     const navigate = useNavigate();
 
     const handleSignIn = () => {
-        navigate('/login');
+        navigate(ROUTE.LOGIN);
     };
 
     const handleSignUp = () => {
-        navigate('/registration');
+        navigate(ROUTE.REGISTRATION);
     };
 
     return (
-        <div className="auth-buttons">
-            <button className="btn btn-common btn-primary" onClick={handleSignIn}>
+        <div className="authbuttons">
+            <button className="header__btn header__btn_common header__btn_primary" onClick={handleSignIn}>
                 Увійти
             </button>
-            <button className="btn btn-common btn-third" onClick={handleSignUp}>
+            <button className="header__btn header__btn_common header__btn_third" onClick={handleSignUp}>
                 Реєстрація
             </button>
         </div>
