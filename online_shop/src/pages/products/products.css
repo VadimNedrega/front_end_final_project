@@ -1,5 +1,8 @@
 .product__container {
     display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
 
 .product__image {
