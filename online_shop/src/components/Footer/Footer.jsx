@@ -14,12 +14,10 @@ export function Footer() {
             <div className="footer__row">
                 <h1>Покупцям</h1>
                 <ul>
-                    <li><a href="#">Доставка і оплата</a></li>
-                    <li><a href="#">Гарантія та повернення</a></li>
-                    <li><a href="#">Знижки та акції</a></li>
-                    <li><a href="#">Програма лояльності</a></li>
-                    <li><a href="#">Подарункові карти</a></li>
-                    <li><a href="#">Партнери</a></li>
+                    <li><a href="/delivery">Доставка і оплата</a></li>
+                    <li><a href="/warranty">Гарантія та повернення</a></li>
+                    <li><a href="/loyalty">Програма лояльності</a></li>
+                    <li><a href="/giftCards">Подарункові карти</a></li>
                 </ul>
             </div>
 

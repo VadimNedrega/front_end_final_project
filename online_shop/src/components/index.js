@@ -4,3 +4,7 @@ export * from "./Carousel";
 export * from "./HomeButton";
 export * from "./LoginForm";
 export * from "./RegistrationForm";
+export * from "./Footer/DeliveryPage";
+export * from "./Footer/WarrantyPage";
+export * from "./Footer/LoyaltyPage";
+export * from "./Footer/GiftCardsPage";
