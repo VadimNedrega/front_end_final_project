@@ -3,13 +3,13 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Footer, Header } from '../../components';
 import { rangeOfProducts } from '../../resources/range_of_products';
+import {ROUTE} from '../../router';
 import './products.css';
 
 export const Products = () => {
     const { productKey } = useParams();
     const navigate = useNavigate();
     const productDetails = getProductDetails(productKey);
-
     if (!productDetails) {
         return (
             <div>
@@ -22,14 +22,20 @@ export const Products = () => {
 
     const { image, ItemCharacteristics, Price } = productDetails;
 
+    const handleAddToCart = () => {
+        navigate(`${ROUTE.CART}?productKey=${productKey}&price=${Price}&image=${image}`);
+    };
+
+
+
     return (
         <div>
             <Header />
-            <div className="product-details">
-                <div className="product-image">
+            <div className="product__container">
+                <div className="product__image">
                     <img src={image} alt={productKey} />
                 </div>
-                <div className="product-info">
+                <div className="product__info">
                     <h2>{productKey}</h2>
                     <table>
                         <thead>
@@ -48,12 +54,13 @@ export const Products = () => {
                         </tbody>
                     </table>
                     <p>Price: {Price}</p>
-                    <div className="product-buttons">
-                        <button className="btn-common btn-primary btn-item"
-                                onClick={() => navigate('/')}>Home
+                    <div className="product__buttons">
+                        <button className="header__btn_common header__btn-primary product__btn-item"
+                                onClick={() => navigate(ROUTE.HOME)}>Головна
                         </button>
-                        <button className="btn-common btn-third btn-item"
-                                onClick={() => navigate('/cart')}>Cart
+                        <button className="header__btn_common header__btn-third product__btn-item"
+                                onClick={handleAddToCart}
+                        >Додати в кошик
                         </button>
                     </div>
                 </div>
