@@ -1,9 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { App } from '../App';
 import { Products } from '../pages/products';
 import { Cart } from '../pages/cart'
 import {LoginForm, RegistrationForm, DeliveryPage, WarrantyPage, LoyaltyPage, GiftCardsPage} from "../components";
+
+
+import {createBrowserRouter,} from "react-router-dom";
 
 
 export const ROUTE = {
@@ -19,21 +21,20 @@ export const ROUTE = {
     GIFTCARDS: "/giftCards",
 };
 
-export const AppRouter = () => {
-    return (
-        <Router>
-            <Routes>
-                <Route path={ROUTE.HOME} element={<App />} />
-                <Route path={ROUTE.PRODUCTS} element={<Products />} />
-                <Route path={ROUTE.PRODUCT_CURRENT} element={<Products />} />
-                <Route path={ROUTE.CART} element={<Cart />} />
-                <Route path={ROUTE.LOGIN} element={<LoginForm />} />
-                <Route path={ROUTE.REGISTRATION} element={<RegistrationForm />} />
-                <Route path={ROUTE.DELIVERY} element={<DeliveryPage />} />
-                <Route path={ROUTE.WARRANTY} element={<WarrantyPage />} />
-                <Route path={ROUTE.LOYALTY} element={<LoyaltyPage />} />
-                <Route path={ROUTE.GIFTCARDS} element={<GiftCardsPage />} />
-            </Routes>
-        </Router>
-    );
-};
+export const router = createBrowserRouter([
+    {path: ROUTE.HOME, element: <App />,},
+    {path: ROUTE.PRODUCTS, element: <Products />,},
+    {path: ROUTE.PRODUCT_CURRENT, element: <Products />,},
+    {path: ROUTE.CART, element: <Cart />,},
+    {path: ROUTE.LOGIN, element: <LoginForm />,},
+    {path: ROUTE.REGISTRATION, element: <RegistrationForm />,},
+    {path: ROUTE.DELIVERY, element: <DeliveryPage />,},
+    {path: ROUTE.WARRANTY, element: <WarrantyPage />,},
+    {path: ROUTE.LOYALTY, element: <LoyaltyPage />,},
+    {path: ROUTE.GIFTCARDS, element: <GiftCardsPage />,},
+]);
+
+
+
+
+
