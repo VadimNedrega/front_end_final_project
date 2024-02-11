@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import "./RegistrationForm.css"
 import {FaUser, FaLock} from "react-icons/fa";
-import {HomeButton} from "../HomeButton";
-import {Header} from "../Header";
-import {Footer} from "../Footer";
+import {HomeButton} from "../../components";
+import {Header} from "../../components";
+import {Footer} from "../../components";
 
 export function RegistrationForm() {
     const buttonName = "Register";
