@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { rangeOfProducts } from "../../resources/range_of_products";
+import { rangeOfProducts } from "../../resources";
 import {ROUTE} from '../../router';
 
 export function DropDownMenu({ categories }) {
@@ -34,15 +34,18 @@ export function DropDownMenu({ categories }) {
         if (category !== "Products") {
             const products =
                 rangeOfProducts.categories[category]?.Products || {};
-            console.log("Selected Category:", category);
             setHoveredCategory(category);
             setHoveredProducts(products);
         }
     };
 
     const handleCurrentItemHover = (productKey) => {
-        console.log(productKey);
-        navigate(`/products/${productKey}`);
+        navigate(`${ROUTE.PRODUCT_CURRENT.replace(":productKey", productKey)}`);
+    };
+
+    const handleCategoryClick = (category) => {
+        console.log(category);
+        navigate(`${ROUTE.CATEGORY_CURRENT.replace(":category", category)}`);
     };
 
     const handleButtonHover = () => {
@@ -77,6 +80,7 @@ export function DropDownMenu({ categories }) {
                         <div
                             key={category}
                             onMouseEnter={() => handleListItemHover(category)}
+                            onClick={() => handleCategoryClick(category)}
                         >
                             {category}
                         </div>

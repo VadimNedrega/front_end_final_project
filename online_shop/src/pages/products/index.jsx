@@ -2,7 +2,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Footer, Header } from '../../components';
-import { rangeOfProducts } from '../../resources/range_of_products';
+import { rangeOfProducts } from '../../resources';
 import {ROUTE} from '../../router';
 import './products.css';
 
