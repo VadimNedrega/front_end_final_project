@@ -6,10 +6,12 @@ import {LoginForm, RegistrationForm, DeliveryPage, WarrantyPage, LoyaltyPage, Gi
 
 
 import {createBrowserRouter,} from "react-router-dom";
+import {Index} from "../pages/categories";
 
 
 export const ROUTE = {
     HOME: "/",
+    CATEGORY_CURRENT: "/categories/:category",
     PRODUCTS: "/products",
     PRODUCT_CURRENT: "/products/:productKey",
     CART: "/cart",
@@ -23,6 +25,7 @@ export const ROUTE = {
 
 export const router = createBrowserRouter([
     {path: ROUTE.HOME, element: <App />,},
+    {path: ROUTE.CATEGORY_CURRENT, element: <Index />,},
     {path: ROUTE.PRODUCTS, element: <Products />,},
     {path: ROUTE.PRODUCT_CURRENT, element: <Products />,},
     {path: ROUTE.CART, element: <Cart />,},
