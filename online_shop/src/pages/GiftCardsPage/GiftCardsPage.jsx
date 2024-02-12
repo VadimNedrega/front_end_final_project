@@ -1,7 +1,7 @@
 import React from 'react';
 import './GiftCardsPage.css';
-import {Header} from "../../Header";
-import {Footer} from "../index";
+import {Header} from "../../components";
+import {Footer} from "../../components";
 
 export function GiftCardsPage() {
     return (

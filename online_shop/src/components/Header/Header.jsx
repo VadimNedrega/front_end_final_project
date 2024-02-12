@@ -22,7 +22,7 @@ export function Header() {
         console.log('Selected Language:', language);
     };
 
-    const cartImageSource = "./shopping-cart.png";
+    const cartImageSource = "./shopping-Cart.png";
 
     return (
         <div className="header">

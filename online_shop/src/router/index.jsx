@@ -1,25 +1,39 @@
 import React from 'react';
 import { App } from '../App';
-import { Products, Cart, OrderForm } from '../pages';
-import {LoginForm, RegistrationForm, DeliveryPage, WarrantyPage, LoyaltyPage, GiftCardsPage} from "../components";
+import { Products } from '../pages';
+import { Cart } from '../pages'
+import {Index} from "../pages";
+import {OrderForm} from "../pages";
+import {LoginForm} from "../pages";
+import {RegistrationForm} from "../pages";
+import {DeliveryPage} from "../pages";
+import {WarrantyPage} from "../pages";
+import {LoyaltyPage} from "../pages";
+import {GiftCardsPage} from "../pages";
+import {AboutPage} from "../pages";
+import {ContactsPage} from "../pages";
+import {CareerPage} from "../pages";
 
 import {createBrowserRouter,} from "react-router-dom";
-import {Index} from "../pages";
+
 
 
 export const ROUTE = {
     HOME: "/",
-    CATEGORY_CURRENT: "/categories/:category",
-    PRODUCTS: "/products",
-    PRODUCT_CURRENT: "/products/:productKey",
-    CART: "/cart",
+    CATEGORY_CURRENT: "/Categories/:category",
+    PRODUCTS: "/Products",
+    PRODUCT_CURRENT: "/Products/:productKey",
+    CART: "/Cart",
     ORDER_FORM: "/order_form",
     LOGIN: "/login",
     REGISTRATION: "/registration",
     DELIVERY: "/delivery",
     WARRANTY: "/warranty",
     LOYALTY: "/loyalty",
-    GIFTCARDS: "/giftCards",
+    GIFT_CARDS: "/giftCards",
+    ABOUT: "/about",
+    CONTACTS: "/contacts",
+    CAREER: "/career",
 };
 
 export const router = createBrowserRouter([
@@ -34,7 +48,10 @@ export const router = createBrowserRouter([
     {path: ROUTE.DELIVERY, element: <DeliveryPage />,},
     {path: ROUTE.WARRANTY, element: <WarrantyPage />,},
     {path: ROUTE.LOYALTY, element: <LoyaltyPage />,},
-    {path: ROUTE.GIFTCARDS, element: <GiftCardsPage />,},
+    {path: ROUTE.GIFT_CARDS, element: <GiftCardsPage />,},
+    {path: ROUTE.ABOUT, element: <AboutPage />,},
+    {path: ROUTE.CONTACTS, element: <ContactsPage />,},
+    {path: ROUTE.CAREER, element: <CareerPage />,},
 ]);
 
 
