@@ -88,7 +88,8 @@ export const Cart = () => {
                         Повернутись до пошуку товарів
                     </button>
                     <button className="cart__item_btn"
-                            onClick={() => localStorage.clear()}>
+                            // onClick={() => localStorage.clear()}>
+                            onClick={() => navigate(ROUTE.ORDER_FORM)}>
                         Оформити замовлення
                     </button>
                 </div>

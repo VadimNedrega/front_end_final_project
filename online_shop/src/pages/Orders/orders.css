@@ -1,0 +1,76 @@
+.order__table_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+}
+.order__table_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+.order__total_amount {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2vh;
+}
+
+.order__table_text{
+    display: flex;
+    color: #0935ef;
+    font-size: 1.2vw;
+    padding-left: 5vw;
+}
+
+
+.order__table_row th {
+    font-size: 1.5vw;
+    height: 7vh;
+    align-items: center;
+    padding-left: 0.5vh;
+    padding-right: 1vh;
+}
+
+.order__table_row td {
+    align-items: center;
+    text-align: center;
+}
+
+.order__form_input {
+    width: 50%;
+    margin: 0 auto;
+    border: 2px solid #1860e7;
+    border-radius: 10px;
+    padding: 1vh;
+}
+
+.order__form_input input[type="text"],
+.order__form_input input[type="email"],
+.order__form_input textarea {
+    width: 40%;
+    margin-bottom: 3vh;
+    margin-left: 1.5vh;
+}
+
+.order__form_input input[type="radio"] {
+    margin-right: 3vh;
+}
+
+.order__form_input label {
+    margin-right: 5vh;
+}
+
+.order__form_input div {
+    display: flex;
+    align-items: center;
+}
+
+.order__form_submit{
+    background-color: #3451e1;
+    margin-right: 10px;
+    color: #fff;
+    border: 1px solid #112370;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 5vh;
+}

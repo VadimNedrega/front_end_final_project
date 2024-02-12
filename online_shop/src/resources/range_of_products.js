@@ -11,7 +11,7 @@ export const rangeOfProducts = {
                             'PowerVoltage': '12V',
                         },
                         'Price': '190',
-                        'image': '/img/products/controlpanels/001.jpg',
+                        'image': '/img/Products/controlpanels/001.jpg',
                     },
                     'K927': {
                         'ItemCharacteristics': {
@@ -22,7 +22,7 @@ export const rangeOfProducts = {
                             'PowerVoltage': '24V',
                         },
                         'Price': '550',
-                        'image': '/img/products/controlpanels/002.jpg',
+                        'image': '/img/Products/controlpanels/002.jpg',
                     },
                     'K1021': {
                         'ItemCharacteristics': {
@@ -33,7 +33,7 @@ export const rangeOfProducts = {
                             'PowerVoltage': '24V',
                         },
                         'Price': '790',
-                        'image': '/img/products/controlpanels/003.jpg',
+                        'image': '/img/Products/controlpanels/003.jpg',
                     },
                 },
         },
@@ -48,7 +48,7 @@ export const rangeOfProducts = {
                             'PowerVoltage': '24V',
                         },
                         'Price': '150',
-                        'image': '/img/products/controllers/001.jpg',
+                        'image': '/img/Products/controllers/001.jpg',
                     },
                     'MK120.03': {
                         'ItemCharacteristics': {
@@ -61,7 +61,7 @@ export const rangeOfProducts = {
                             'PowerVoltage': '24V',
                         },
                         'Price': '390',
-                        'image': '/img/products/controllers/002.jpg',
+                        'image': '/img/Products/controllers/002.jpg',
                     },
                     'MK120.05': {
                         'ItemCharacteristics': {
@@ -73,7 +73,7 @@ export const rangeOfProducts = {
                             'PowerVoltage': '12V',
                         },
                         'Price': '420',
-                        'image': '/img/products/controllers/003.jpg',
+                        'image': '/img/Products/controllers/003.jpg',
                     },
                     'DVP20EX200T': {
                         'ItemCharacteristics': {
@@ -89,7 +89,7 @@ export const rangeOfProducts = {
                             'PowerVoltage': '100~240V',
                         },
                         'Price': '790',
-                        'image': '/img/products/controllers/004.jpg',
+                        'image': '/img/Products/controllers/004.jpg',
                     },
                     'DVP12SE11T': {
                         'ItemCharacteristics': {
@@ -102,7 +102,7 @@ export const rangeOfProducts = {
                             'PowerVoltage': '24V',
                         },
                         'Price': '590',
-                        'image': '/img/products/controllers/005.jpg',
+                        'image': '/img/Products/controllers/005.jpg',
                     },
                     'DVP28SV11T': {
                         'ItemCharacteristics': {
@@ -115,7 +115,7 @@ export const rangeOfProducts = {
                             'PowerVoltage': '100~240V',
                         },
                         'Price': '590',
-                        'image': '/img/products/controllers/006.jpg',
+                        'image': '/img/Products/controllers/006.jpg',
                     },
                     'DVP14SS211T': {
                         'ItemCharacteristics': {
@@ -128,7 +128,7 @@ export const rangeOfProducts = {
                             'PowerVoltage': '100~240V',
                         },
                         'Price': '620',
-                        'image': '/img/products/controllers/007.jpg',
+                        'image': '/img/Products/controllers/007.jpg',
                     },
                 },
         },
@@ -148,7 +148,7 @@ export const rangeOfProducts = {
                             'PowerVoltage': '12/24V',
                         },
                         'Price': '750',
-                        'image': '/img/products/compactmodules/001.jpg',
+                        'image': '/img/Products/compactmodules/001.jpg',
                     },
                     'MT-151': {
                         'ItemCharacteristics': {
@@ -167,7 +167,7 @@ export const rangeOfProducts = {
                             'Battery Backup': 'Buffered power supply (SLA battery support)',
                         },
                         'Price': '880',
-                        'image': '/img/products/compactmodules/002.jpg',
+                        'image': '/img/Products/compactmodules/002.jpg',
                     },
                     'MT-156': {
                         'ItemCharacteristics': {
@@ -185,7 +185,7 @@ export const rangeOfProducts = {
                             'Battery Backup': 'Buffered power supply (SLA battery support)',
                         },
                         'Price': '630',
-                        'image': '/img/products/compactmodules/003.jpg',
+                        'image': '/img/Products/compactmodules/003.jpg',
                     },
                 },
         },
@@ -205,7 +205,7 @@ export const rangeOfProducts = {
                             'PowerVoltage': '12/24V',
                         },
                         'Price': '377',
-                        'image': '/img/products/specialtelemetrymodule/001.jpg',
+                        'image': '/img/Products/specialtelemetrymodule/001.jpg',
                     },
                     'MT-652': {
                         'ItemCharacteristics': {
@@ -221,7 +221,7 @@ export const rangeOfProducts = {
                             'PowerVoltage': '12/24V',
                         },
                         'Price': '530',
-                        'image': '/img/products/specialtelemetrymodule/002.jpg',
+                        'image': '/img/Products/specialtelemetrymodule/002.jpg',
                     },
                     'MT-513': {
                         'ItemCharacteristics': {
@@ -234,7 +234,7 @@ export const rangeOfProducts = {
                             'PowerVoltage': '12/24V',
                         },
                         'Price': '475',
-                        'image': '/img/products/specialtelemetrymodule/003.jpg',
+                        'image': '/img/Products/specialtelemetrymodule/003.jpg',
                     },
                     'MT-221': {
                         'ItemCharacteristics': {
@@ -247,7 +247,7 @@ export const rangeOfProducts = {
                             'PowerVoltage': '12/24V',
                         },
                         'Price': '320',
-                        'image': '/img/products/specialtelemetrymodule/004.jpg',
+                        'image': '/img/Products/specialtelemetrymodule/004.jpg',
                     },
                     'MTX-2050': {
                         'ItemCharacteristics': {
@@ -262,7 +262,7 @@ export const rangeOfProducts = {
                             'PowerVoltage': '12/24V',
                         },
                         'Price': '320',
-                        'image': '/img/products/specialtelemetrymodule/005.jpg',
+                        'image': '/img/Products/specialtelemetrymodule/005.jpg',
                     },
                 },
         },
@@ -277,7 +277,7 @@ export const rangeOfProducts = {
                             'Power': '15W',
                         },
                         'Price': '19',
-                        'image': '/img/products/powersupplies/001.jpg',
+                        'image': '/img/Products/powersupplies/001.jpg',
                     },
                     'DR-12-5': {
                         'ItemCharacteristics': {
@@ -287,7 +287,7 @@ export const rangeOfProducts = {
                             'Power': '12W',
                         },
                         'Price': '15',
-                        'image': '/img/products/powersupplies/002.jpg',
+                        'image': '/img/Products/powersupplies/002.jpg',
                     },
                     'DR-60-15': {
                         'ItemCharacteristics': {
@@ -297,7 +297,7 @@ export const rangeOfProducts = {
                             'Power': '60W',
                         },
                         'Price': '25',
-                        'image': '/img/products/powersupplies/003.jpg',
+                        'image': '/img/Products/powersupplies/003.jpg',
                     },
                     'DR-75-12': {
                         'ItemCharacteristics': {
@@ -307,7 +307,7 @@ export const rangeOfProducts = {
                             'Power': '75W',
                         },
                         'Price': '27',
-                        'image': '/img/products/powersupplies/004.jpg',
+                        'image': '/img/Products/powersupplies/004.jpg',
                     },
                 },
         },
