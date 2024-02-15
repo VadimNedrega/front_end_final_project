@@ -2,6 +2,7 @@ import React from 'react';
 import './WarrantyPage.css';
 import {Header} from "../../components";
 import {Footer} from "../../components";
+import {FOOTER_IMAGE} from "../../resources/footer_images";
 
 export function WarrantyPage() {
     return (
@@ -16,7 +17,7 @@ export function WarrantyPage() {
                     </p>
 
                     <img
-                        src="https://www.propharmagroup.com/hs-fs/hubfs/Imported_Blog_Media/quality_inspection-4-1.jpg?width=1650&height=750&name=quality_inspection-4-1.jpg"
+                        src={FOOTER_IMAGE.WARRANTY_1}
                         alt="Якість"
                         className="warranty-image"
                     />
@@ -29,7 +30,7 @@ export function WarrantyPage() {
                     </p>
 
                     <img
-                        src="https://www.prof-lider.com/themes/ban/cennosti/canukr2.jpg"
+                        src={FOOTER_IMAGE.WARRANTY_2}
                         alt="Стандарти"
                         className="warranty-image"
                     />
@@ -42,7 +43,7 @@ export function WarrantyPage() {
                     </p>
 
                     <img
-                        src="https://st2.depositphotos.com/2274151/5430/i/600/depositphotos_54301317-stock-photo-high-standard-blue-grungy-stamp.jpg"
+                        src={FOOTER_IMAGE.WARRANTY_3}
                         alt="Стандарти"
                         className="warranty-image"
                     />

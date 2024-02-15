@@ -13,9 +13,11 @@ import {GiftCardsPage} from "../pages";
 import {AboutPage} from "../pages";
 import {ContactsPage} from "../pages";
 import {CareerPage} from "../pages";
+import {FaqPage} from "../pages";
+import {ReturnsPage} from "../pages";
+import {ServiceCenterPage} from "../pages";
 
 import {createBrowserRouter,} from "react-router-dom";
-
 
 
 export const ROUTE = {
@@ -34,6 +36,9 @@ export const ROUTE = {
     ABOUT: "/about",
     CONTACTS: "/contacts",
     CAREER: "/career",
+    FAQ: "/faq",
+    RETURNS: "/returns",
+    SERVICE_CENTER: "/service-center",
 };
 
 export const router = createBrowserRouter([
@@ -52,6 +57,9 @@ export const router = createBrowserRouter([
     {path: ROUTE.ABOUT, element: <AboutPage />,},
     {path: ROUTE.CONTACTS, element: <ContactsPage />,},
     {path: ROUTE.CAREER, element: <CareerPage />,},
+    {path: ROUTE.FAQ, element: <FaqPage />,},
+    {path: ROUTE.RETURNS, element: <ReturnsPage />,},
+    {path: ROUTE.SERVICE_CENTER, element: <ServiceCenterPage />,},
 ]);
 
 

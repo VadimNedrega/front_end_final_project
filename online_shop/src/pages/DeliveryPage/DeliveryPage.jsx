@@ -2,6 +2,7 @@ import React from 'react';
 import './DeliveryPage.css';
 import {Header} from "../../components";
 import {Footer} from "../../components";
+import {FOOTER_IMAGE} from "../../resources/footer_images";
 
 export function DeliveryPage() {
     return (
@@ -11,7 +12,7 @@ export function DeliveryPage() {
                 <h1>Доставка і оплата</h1>
 
                 <img
-                    src="https://kondicionery.in.ua/images/Raznoe/dostavka_tovary.jpg"
+                    src={FOOTER_IMAGE.DELIVERY}
                     alt="Доставка і оплата"
                     className="delivery-image"
                 />
