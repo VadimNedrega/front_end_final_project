@@ -11,3 +11,6 @@ export * from "./GiftCardsPage";
 export * from "./AboutPage";
 export * from "./ContactsPage";
 export * from "./CareerPage";
+export * from "./FaqPage";
+export * from "./ReturnsPage";
+export * from "./ServiceCenterPage";
