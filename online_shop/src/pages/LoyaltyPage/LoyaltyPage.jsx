@@ -2,6 +2,7 @@ import React from 'react';
 import './LoyaltyPage.css';
 import {Header} from "../../components";
 import {Footer} from "../../components";
+import {FOOTER_IMAGE} from "../../resources/footer_images";
 
 export function LoyaltyPage() {
     return (
@@ -12,7 +13,7 @@ export function LoyaltyPage() {
                 <h1>Програма лояльності</h1>
 
                 <img
-                    src="https://bcm.net.ua/storage/app/uploads/public/61a/c62/ffe/x61ac62ffe204e727703835.jpg.pagespeed.ic.4DYCyl-jsF.webp"
+                    src={FOOTER_IMAGE.LOYALTY}
                     alt="Програма лояльності"
                     className="loyalty-image"
                 />

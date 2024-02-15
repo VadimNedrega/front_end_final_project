@@ -2,6 +2,7 @@ import React from 'react';
 import './GiftCardsPage.css';
 import {Header} from "../../components";
 import {Footer} from "../../components";
+import {FOOTER_IMAGE} from "../../resources/footer_images";
 
 export function GiftCardsPage() {
     return (
@@ -17,7 +18,7 @@ export function GiftCardsPage() {
                 </p>
 
                 <img
-                    src="https://img.freepik.com/free-photo/beautiful-gift-voucher-with-hand_23-2149243920.jpg?w=1060&t=st=1707055595~exp=1707056195~hmac=44716a82b3a1eb98ed632e232f4f0bc10f75237eb5160cab6db7e7f3b856d9aa"
+                    src={FOOTER_IMAGE.GIFT_CARDS}
                     alt="Подарункові карти"
                     className="gift-cards-image"
                 />

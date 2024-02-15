@@ -22,7 +22,6 @@ export const Carousel = ({images, interval = 3500}) => {
         return () => {
             clearInterval(autoPlayInterval);
         }
-        // Webpack says me to disable this line 25, don't know the reason
         // eslint-disable-next-line
     }, [interval]);
     return (

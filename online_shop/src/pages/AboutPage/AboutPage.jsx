@@ -2,6 +2,7 @@ import React from 'react';
 import './AboutPage.css';
 import {Header} from "../../components";
 import {Footer} from "../../components";
+import {FOOTER_IMAGE} from "../../resources/footer_images";
 
 export function AboutPage() {
     return (
@@ -15,7 +16,7 @@ export function AboutPage() {
                 </p>
 
                 <img
-                    src="https://seo-evolution.com.ua/imgfly/public/Ej5uSGigkkhfGF9Sq2yBC9xGtsPNaiiNQ7uy0W4i.jpg"
+                    src={FOOTER_IMAGE.ABOUT}
                     alt="Про нас"
                     className="about-page__image"
                 />

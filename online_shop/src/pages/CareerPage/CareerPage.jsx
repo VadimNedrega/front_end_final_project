@@ -2,6 +2,7 @@ import React from 'react';
 import './CareerPage.css';
 import {Header} from "../../components";
 import {Footer} from "../../components";
+import {FOOTER_IMAGE} from "../../resources/footer_images";
 
 export function CareerPage() {
     return (
@@ -15,7 +16,7 @@ export function CareerPage() {
                 </p>
 
                 <img
-                    src="https://dk.od.ua/wp-content/uploads/2018/12/%D0%B2%D0%B0%D0%BA.jpg"
+                    src={FOOTER_IMAGE.CAREER}
                     alt="Про нас"
                     className="about-page__image"
                 />
