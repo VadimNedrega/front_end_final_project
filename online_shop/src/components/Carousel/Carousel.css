@@ -1,5 +1,6 @@
 .carousel__container {
-    margin: 45px 0 0 0;
+    margin: 45px auto;
+    max-width: 1500px;
 }
 
 .carousel {
