@@ -5,7 +5,7 @@ import {DropDownMenu} from './DropDownMenu';
 import {SearchForm} from './SearchForm';
 import {AuthButtons} from './AuthButtons';
 import {CartIcon} from './CartIcon';
-import {rangeOfProducts} from '../../resources/range_of_products';
+import {rangeOfProducts} from '../../resources';
 
 
 export function Header() {
