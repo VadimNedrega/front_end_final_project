@@ -1,11 +1,8 @@
 export const images = [
-    'https://klassmarket.ua/image/catalog/data/home/home_slider/001/001.jpg',
-    'https://klassmarket.ua/image/catalog/data/home/home_slider/001/002.jpg',
-    'https://klassmarket.ua/image/catalog/data/home/home_slider/001/003.jpg',
-    'https://klassmarket.ua/image/catalog/data/home/home_slider/001/004.jpg',
-    'https://klassmarket.ua/image/catalog/data/home/home_slider/001/005.jpg',
-    'https://klassmarket.ua/image/catalog/data/home/home_slider/001/006.jpg',
-    'https://klassmarket.ua/image/catalog/data/home/home_slider/001/007.jpg',
-    'https://klassmarket.ua/image/catalog/data/home/home_slider/001/008.jpg',
-    'https://klassmarket.ua/image/catalog/data/home/home_slider/001/009.jpg',
+    'https://images.prom.ua/4642219667_4642219667.jpg',
+    'https://images.prom.ua/4672544311_4672544311.jpg',
+    'https://images.prom.ua/4672581210_4672581210.jpg',
+    'https://images.prom.ua/4672603411_4672603411.jpg',
+    'https://images.prom.ua/4672623763_4672623763.jpg',
+    'https://images.prom.ua/4672666102_4672666102.jpg'
 ];

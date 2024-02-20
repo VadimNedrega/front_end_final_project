@@ -1,5 +1,5 @@
-
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
+import {useNavigate} from 'react-router-dom';
 import './Header.css';
 import {DropDownMenu} from './DropDownMenu';
 import {SearchForm} from './SearchForm';
@@ -45,6 +45,7 @@ export function Header() {
         </div>
     );
 }
+
 
 
 

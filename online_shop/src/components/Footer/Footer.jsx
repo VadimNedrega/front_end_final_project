@@ -32,11 +32,11 @@ export function Footer() {
             </div>
 
             <div className="footer__row">
-                <h1>Робота</h1>
+                <h1>Допомога</h1>
                 <ul>
-                    <li><a href="#">Вакансїї</a></li>
-                    <li><a href="#">Менеджери з персоналу</a></li>
-                    <li><a href="#">Історії успіху</a></li>
+                    <li><a href={ROUTE.FAQ}>Питання та відповіді</a></li>
+                    <li><a href={ROUTE.RETURNS}>Повернення товарів</a></li>
+                    <li><a href={ROUTE.SERVICE_CENTER}>Сервісний центр</a></li>
                 </ul>
             </div>
         </footer>
