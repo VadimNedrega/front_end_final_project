@@ -1,4 +1,5 @@
 export * from "./Cart";
+export * from "./Cart/utils/localStorageUtils";
 export * from "./Products";
 export * from "./Orders";
 export * from "./Categories";

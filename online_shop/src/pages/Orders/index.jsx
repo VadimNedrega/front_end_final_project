@@ -4,6 +4,9 @@ import {useNavigate } from 'react-router-dom'
 import { Footer, Header } from "../../components";
 import "./orders.css";
 import {ROUTE} from "../../router";
+import {
+    clearLocalStorage,
+} from '../';
 
 export const OrderForm = () => {
     const navigate = useNavigate();
@@ -50,7 +53,7 @@ export const OrderForm = () => {
             descriptionOfOrder: [],
             totalAmount: 0,
         });
-        localStorage.clear();
+        clearLocalStorage();
         navigate(ROUTE.HOME);
     };
 
@@ -151,7 +154,7 @@ export const OrderForm = () => {
                             <button className="order__form_submit" type="submit">Замовити</button>
                         </form>
 
-            <button className="order__items_delete_btn" onClick={() => localStorage.clear()}>
+            <button className="order__items_delete_btn" onClick={() => clearLocalStorage()}>
                 Clear LocalStorage
             </button>
             <Footer />
