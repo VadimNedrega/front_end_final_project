@@ -4,9 +4,10 @@ import {useNavigate } from 'react-router-dom'
 import { Footer, Header } from "../../components";
 import "./orders.css";
 import {ROUTE} from "../../router";
-import {
-    clearLocalStorage,
-} from '../';
+import { clearReduxStore } from "../../ducks"
+
+
+
 
 export const OrderForm = () => {
     const navigate = useNavigate();
@@ -22,6 +23,8 @@ export const OrderForm = () => {
         descriptionOfOrder: [],
         totalAmount: 0,
     });
+//    const functionName = {name:`clear${config.storeUtility}`};
+//    const functionName = window['clear'+config.storeUtility]();
 
     useEffect(() => {
         const keys = Object.keys(localStorage).filter(key => key.includes('cartData'));
@@ -53,7 +56,8 @@ export const OrderForm = () => {
             descriptionOfOrder: [],
             totalAmount: 0,
         });
-        clearLocalStorage();
+//        clearLocalStorage();
+        clearReduxStore();
         navigate(ROUTE.HOME);
     };
 
@@ -154,8 +158,9 @@ export const OrderForm = () => {
                             <button className="order__form_submit" type="submit">Замовити</button>
                         </form>
 
-            <button className="order__items_delete_btn" onClick={() => clearLocalStorage()}>
-                Clear LocalStorage
+            {/*<button className="order__items_delete_btn" onClick={() => clearLocalStorage()}>*/}
+            <button className="order__items_delete_btn" onClick={() => clearReduxStore()}>
+                Clear
             </button>
             <Footer />
         </div>

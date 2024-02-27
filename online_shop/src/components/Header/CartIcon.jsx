@@ -1,20 +1,44 @@
-import React from 'react';
+// import React from 'react';
+//
+// export const CartIcon = ({cartImageSrc}) => {
+//     const handleCartClick = () => {
+//         window.location.href = '/Cart';
+//     };
+//
+//     return (
+//         <a href="/Cart" onClick={handleCartClick}>
+//             <img
+//                 width="70px"
+//                 height="auto"
+//                 src={cartImageSrc}
+//                 alt="Cart"
+//                 className="cart-icon"
+//             />
+//         </a>
+//     );
+// };
 
-export const CartIcon = ({cartImageSrc}) => {
+
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ROUTE } from '../../router';
+
+export const CartIcon = ({ cartImageSrc }) => {
+    const navigate = useNavigate();
+
     const handleCartClick = () => {
-        window.location.href = '/Cart';
+        navigate(ROUTE.CART);
     };
 
     return (
-        <a href="/Cart" onClick={handleCartClick}>
+        <button className="cart-icon" onClick={handleCartClick}>
             <img
                 width="70px"
                 height="auto"
                 src={cartImageSrc}
                 alt="Cart"
-                className="cart-icon"
             />
-        </a>
+        </button>
     );
 };
 

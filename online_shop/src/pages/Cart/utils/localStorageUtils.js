@@ -1,4 +1,6 @@
 export const saveCartItemToLocalStorage = (productKey, cartData) => {
+    console.log('productKey = ', productKey);
+    console.log('cartData777 = ', cartData);
     localStorage.setItem(`cartData_${productKey}`, JSON.stringify(cartData));
 };
 
@@ -9,6 +11,7 @@ export const getCartItemsFromLocalStorage = () => {
 
 export const removeCartItemFromLocalStorage = (productKey) => {
     localStorage.removeItem(`cartData_${productKey}`);
+    saveCartItemToLocalStorage(productKey,[]);
 };
 
 export const clearLocalStorage = () => {
