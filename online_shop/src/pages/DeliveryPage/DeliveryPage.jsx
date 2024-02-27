@@ -2,12 +2,12 @@ import React from 'react';
 import './DeliveryPage.css';
 import {Header} from "../../components";
 import {Footer} from "../../components";
-import {FOOTER_IMAGE} from "../../resources/footer_images";
+import {FOOTER_IMAGE} from "../../resources";
 
 export function DeliveryPage() {
     return (
         <div>
-            <Header />
+            <Header/>
             <div className="delivery-page__content">
                 <h1>Доставка і оплата</h1>
 

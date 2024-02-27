@@ -48,7 +48,7 @@ export const Cart = () => {
 
     return (
         <div>
-            <Header />
+            <Header/>
             <div className="cart">
                 <table className="cart__table">
                     <thead>

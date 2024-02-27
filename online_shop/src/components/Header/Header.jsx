@@ -1,11 +1,10 @@
-import React, {useState, useEffect, useRef} from 'react';
-import {useNavigate} from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
 import './Header.css';
 import {DropDownMenu} from './DropDownMenu';
 import {SearchForm} from './SearchForm';
 import {AuthButtons} from './AuthButtons';
 import {CartIcon} from './CartIcon';
-import {rangeOfProducts} from '../../resources/range_of_products';
+import {rangeOfProducts} from '../../resources';
 
 
 export function Header() {

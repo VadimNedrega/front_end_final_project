@@ -2,7 +2,7 @@ import React from 'react';
 import './AboutPage.css';
 import {Header} from "../../components";
 import {Footer} from "../../components";
-import {FOOTER_IMAGE} from "../../resources/footer_images";
+import {FOOTER_IMAGE} from "../../resources";
 
 export function AboutPage() {
     return (

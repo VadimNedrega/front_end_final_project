@@ -1,46 +1,77 @@
 import React from "react";
-import "./LoginForm.css"
+import {Formik, Form, Field, ErrorMessage} from "formik";
+import * as Yup from "yup";
+import "./LoginForm.css";
 import {FaUser, FaLock} from "react-icons/fa";
-import {HomeButton} from "../../components";
-import {Header} from "../../components";
-import {Footer} from "../../components";
-import {ROUTE} from '../../router';
+import {Header, Footer} from "../../components";
+import {ROUTE} from "../../router";
+import {Link, useNavigate} from "react-router-dom";
 
 export function LoginForm() {
-    const buttonName = "Login";
+    const navigate = useNavigate();
+
+    const initialValues = {
+        username: "",
+        password: "",
+        rememberMe: false,
+    };
+
+    const validationSchema = Yup.object({
+        username: Yup.string().required("Username is required"),
+        password: Yup.string().required("Password is required"),
+    });
+
+
+    const handleSubmit = () => {
+        navigate(ROUTE.HOME);
+    }
 
     return (
         <div>
             <Header/>
             <div className="wrapper-container">
                 <div className="wrapper">
-                    <form action="">
-                        <h1>Login</h1>
-                        <div className="input-box">
-                            <input type="text" placeholder="Username" required/>
-                            <FaUser className="icon"/>
-                        </div>
-                        <div className="input-box">
-                            <input type="password" placeholder="Password" required/>
-                            <FaLock className="icon"/>
-                        </div>
+                    <Formik
+                        initialValues={initialValues}
+                        validationSchema={validationSchema}
+                        onSubmit={handleSubmit}
+                    >
+                        {() => (
+                            <Form>
+                                <h1>Login</h1>
+                                <div className="input-box">
+                                    <Field type="text" name="username" placeholder="Username"/>
+                                    <FaUser className="icon"/>
+                                </div>
+                                <ErrorMessage name="username" component="div" className="error-message"/>
 
-                        <div className="remember-forgot">
-                            <label><input type="checkbox"/>Remember me </label>
-                            <a href="#"> Forgot password?</a>
-                        </div>
+                                <div className="input-box">
+                                    <Field type="password" name="password" placeholder="Password"/>
+                                    <FaLock className="icon"/>
+                                </div>
+                                <ErrorMessage name="password" component="div" className="error-message"/>
 
-                        <button type="submit">
-                            <HomeButton buttonName={buttonName}/>
-                        </button>
+                                <div className="remember-forgot">
+                                    <label>
+                                        <Field type="checkbox" name="rememberMe"/>
+                                        Remember me
+                                    </label>
+                                    <Link to={ROUTE.REGISTRATION}>Forgot password?</Link>
+                                </div>
 
-                        <div className="register-link">
-                            <p>Don't have an account? <a href={ROUTE.REGISTRATION}>Register</a></p>
-                        </div>
-                    </form>
+                                <button type="submit">
+                                    Login
+                                </button>
+
+                                <div className="register-link">
+                                    <p>Don't have an account? <Link to={ROUTE.REGISTRATION}>Register</Link></p>
+                                </div>
+                            </Form>
+                        )}
+                    </Formik>
                 </div>
             </div>
             <Footer/>
         </div>
-    )
+    );
 }

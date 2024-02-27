@@ -56,7 +56,7 @@ export const OrderForm = () => {
 
     return (
         <div className="order">
-            <Header />
+            <Header/>
             <div className="order__table_container">
                 <table className="order__table">
                     <thead>
