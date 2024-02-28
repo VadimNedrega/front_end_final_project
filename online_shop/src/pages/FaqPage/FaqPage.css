@@ -43,3 +43,7 @@
 .faq-page__image {
     margin-top: 35px;
 }
+
+.faq-page__arrow strong {
+    cursor: pointer;
+}

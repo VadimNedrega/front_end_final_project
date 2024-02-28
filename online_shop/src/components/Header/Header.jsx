@@ -1,5 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
-import {useNavigate} from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
 import './Header.css';
 import {DropDownMenu} from './DropDownMenu';
 import {SearchForm} from './SearchForm';

@@ -2,12 +2,12 @@ import React from 'react';
 import './LoyaltyPage.css';
 import {Header} from "../../components";
 import {Footer} from "../../components";
-import {FOOTER_IMAGE} from "../../resources/footer_images";
+import {FOOTER_IMAGE} from "../../resources";
 
 export function LoyaltyPage() {
     return (
         <div className="loyalty-page">
-            <Header />
+            <Header/>
 
             <div className="loyalty-page__content">
                 <h1>Програма лояльності</h1>

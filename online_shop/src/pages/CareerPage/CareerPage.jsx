@@ -2,7 +2,7 @@ import React from 'react';
 import './CareerPage.css';
 import {Header} from "../../components";
 import {Footer} from "../../components";
-import {FOOTER_IMAGE} from "../../resources/footer_images";
+import {FOOTER_IMAGE} from "../../resources";
 
 export function CareerPage() {
     return (
