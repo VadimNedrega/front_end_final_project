@@ -2,9 +2,8 @@
 .footer__container {
     bottom: 0;
     width: 100%;
-    height: 350px;
+    min-height: 350px;
     margin-top: 70px;
-    padding: 12px 20% 24px 12px;
     display: flex;
     justify-content: space-evenly;
     background-color: #181515;
@@ -12,7 +11,7 @@
 }
 
 .footer__row {
-    margin-right: 30px;
+    width: 20%;
     margin-top: 40px;
 }
 

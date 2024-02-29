@@ -18,7 +18,7 @@ export const Index = () => {
 
     return (
         <div>
-            <Header />
+            <Header/>
             <h2>Category: {category}</h2>
             <ul>
                 {products.map(product => (
