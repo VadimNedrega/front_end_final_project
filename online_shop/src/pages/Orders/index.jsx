@@ -5,13 +5,13 @@ import { Footer, Header } from "../../components";
 import "./orders.css";
 import {ROUTE} from "../../router";
 import { clearReduxStore } from "../../ducks"
-
-
-
+import {useDispatch, useSelector} from "react-redux";
 
 export const OrderForm = () => {
     const navigate = useNavigate();
-    const [cartItems, setCartItems] = useState([]);
+    const dispatch = useDispatch();
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+    const cartItems = useSelector((state) => state.cart.cartItems);
     const [totalSum, setTotalSum] = useState(0);
     const [customerData, setCustomerData] = useState({
         name: '',
@@ -23,28 +23,24 @@ export const OrderForm = () => {
         descriptionOfOrder: [],
         totalAmount: 0,
     });
-//    const functionName = {name:`clear${config.storeUtility}`};
-//    const functionName = window['clear'+config.storeUtility]();
 
     useEffect(() => {
-        const keys = Object.keys(localStorage).filter(key => key.includes('cartData'));
-        const items = keys.map(key => JSON.parse(localStorage.getItem(key)));
-        setCartItems(items);
-
-        const description = items.map(item => ({ ProductKey: item.productKey, Quantity: item.quantityCount }));
-        setCustomerData(prevData => ({ ...prevData, descriptionOfOrder: description }));
-    }, []);
-
-    useEffect(() => {
-        const sum = cartItems.reduce((acc, item) => acc + (item.quantityCount * parseInt(item.price)), 0);
+        const sum = cartItems.reduce((acc, item) => acc + item.quantityCount * parseInt(item.price), 0);
         setTotalSum(sum);
-        setCustomerData(prevData => ({ ...prevData, totalAmount: sum }));
+        setCustomerData((prevData) => ({ ...prevData, totalAmount: sum }));
     }, [cartItems]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (!isAuthenticated) {
+            alert('You need to log in to place an order.');
+            navigate(ROUTE.LOGIN);
+            return;
+        }
+
         console.log(customerData);
-        alert(`Ваше замовлення на сумму ${customerData.totalAmount} прийнято в обробку`)
+        alert(`Ваше замовлення на сумму ${customerData.totalAmount} прийнято в обробку`);
 
         setCustomerData({
             name: '',
@@ -56,14 +52,14 @@ export const OrderForm = () => {
             descriptionOfOrder: [],
             totalAmount: 0,
         });
-//        clearLocalStorage();
-        clearReduxStore();
+
+        dispatch(clearReduxStore());
         navigate(ROUTE.HOME);
     };
 
     return (
         <div className="order">
-            <Header/>
+            <Header />
             <div className="order__table_container">
                 <table className="order__table">
                     <thead>
@@ -87,9 +83,7 @@ export const OrderForm = () => {
                 </table>
             </div>
 
-            <div className="order__total_amount">
-                Усього разом: {totalSum}
-            </div>
+            <div className="order__total_amount">Усього разом: {totalSum}</div>
 
                          <form className="order__form_input" onSubmit={handleSubmit}>
                              <input
@@ -158,8 +152,11 @@ export const OrderForm = () => {
                             <button className="order__form_submit" type="submit">Замовити</button>
                         </form>
 
-            {/*<button className="order__items_delete_btn" onClick={() => clearLocalStorage()}>*/}
-            <button className="order__items_delete_btn" onClick={() => clearReduxStore()}>
+            <button className="order__items_delete_btn"
+                    onClick={() => {
+                        dispatch(clearReduxStore());
+                        navigate(ROUTE.HOME);
+                    }}>
                 Clear
             </button>
             <Footer />

@@ -9,13 +9,10 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         saveCartItemToReduxStore(state, action) {
-//            state.cartItems = [...state.cartItems, action.payload];
             const newItem = action.payload;
             const existingItemIndex = state.cartItems.findIndex(item => item.productKey === newItem.productKey);
             if (existingItemIndex === -1) {
                 state.cartItems.push(newItem);
-            } else {
-                console.log('Item already exists in the cart!');
             }
         },
         removeCartItemFromReduxStore(state, action) {
@@ -24,8 +21,25 @@ const cartSlice = createSlice({
         getCartItemsFromReduxStore(state, action) {
             //state.cartItems = action.payload;
         },
+
+        increment(state, action) {
+            const { productKey } = action.payload;
+            const item = state.cartItems.find(item => item.productKey === productKey);
+            if (item) {
+                item.quantityCount++;
+            }
+        },
+        decrement(state, action) {
+            const { productKey } = action.payload;
+            const item = state.cartItems.find(item => item.productKey === productKey);
+            if (item && item.quantityCount > 1) {
+                item.quantityCount--;
+            }
+        },
+
         clearReduxStore(state) {
             state.cartItems = [];
+            state.quantityCount = 1;
         },
     },
     selectors: {
@@ -38,6 +52,8 @@ export const {
     removeCartItemFromReduxStore,
     getCartItemsFromReduxStore,
     clearReduxStore,
+    increment,
+    decrement,
 } = cartSlice.actions;
 
 export const {selectCart} = cartSlice.selectors;
