@@ -1,20 +1,22 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Footer, Header } from '../../components';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import './cart.css';
-import {ROUTE} from '../../router';
+import { ROUTE } from '../../router';
 import { TdCart } from './TdCart';
+import { saveCartItemToReduxStore, removeCartItemFromReduxStore } from "../../ducks";
 
 export const Cart = () => {
     const location = useLocation();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const queryParams = new URLSearchParams(location.search);
     const productKey = queryParams.get('productKey');
     const price = queryParams.get('price');
     const image = queryParams.get('image');
-    const [cartItems, setCartItems] = useState([]);
-    const [totalSum, setTotalSum] = useState(0);
+    const allItems = useSelector(state => state.cart.cartItems);
 
     useEffect(() => {
         if (productKey && price && image) {
@@ -24,27 +26,16 @@ export const Cart = () => {
                 price,
                 image,
             };
-            localStorage.setItem(`cartData_${productKey}`, JSON.stringify(cartData));
+            dispatch(saveCartItemToReduxStore(cartData));
         }
-    }, [productKey, price, image]);
+    }, [dispatch, productKey, price, image]);
 
     useEffect(() => {
-        const keys = Object.keys(localStorage).filter(key => key.includes('cartData'));
-        const items = keys.map(key => JSON.parse(localStorage.getItem(key)));
-        setCartItems(items);
-    }, []);
-
-    useEffect(() => {
-        const sum = cartItems.reduce((acc, item) => acc + (item.quantityCount * parseInt(item.price)), 0);
-        setTotalSum(sum);
-    }, [cartItems]);
+    }, [allItems]);
 
     const handleDelete = (deletedProductKey) => {
-        const updatedItems = cartItems.filter(item => item.productKey !== deletedProductKey);
-        setCartItems(updatedItems);
-        localStorage.removeItem(`cartData_${deletedProductKey}`);
+        dispatch(removeCartItemFromReduxStore(deletedProductKey));
     };
-
 
     return (
         <div>
@@ -53,26 +44,23 @@ export const Cart = () => {
                 <table className="cart__table">
                     <thead>
                     <tr className="cart__table_row">
-                        <th>  </th>
-                        <th className="cart__table_product_key">Найменування товару</th>
-                        <th className="cart__table_quantity">Кількість</th>
-                        <th>Ціна</th>
-                        <th>Сума</th>
-                        <th>  </th>
+                        <th></th>
+                        <th className="cart__table_product_key">Product Name</th>
+                        <th className="cart__table_quantity">Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
-                    {cartItems.map((item, index) => (
+                    {allItems.map((item, index) => (
                         <TdCart
                             key={index}
                             productKey={item.productKey}
                             image={item.image}
                             price={item.price}
                             quantityCount={item.quantityCount}
-                            setQuantityCount={quantity => {
-                                const updatedItems = [...cartItems];
-                                updatedItems[index].quantityCount = quantity;
-                                setCartItems(updatedItems);
+                            setQuantityCount={(quantity) => {
                             }}
                             onDelete={handleDelete}
                         />
@@ -80,16 +68,13 @@ export const Cart = () => {
                     </tbody>
                 </table>
                 <div className="cart__table_total_amount">
-                    Разом усі товари: {totalSum}
+                    Total: {allItems.reduce((acc, item) => acc + (item.quantityCount * parseInt(item.price)), 0)}
                 </div>
                 <div className="cart__item_btn_group">
-                    <button className="cart__item_btn"
-                            onClick={() => navigate(ROUTE.HOME)}>
+                    <button className="cart__item_btn" onClick={() => navigate(ROUTE.HOME)}>
                         Повернутись до пошуку товарів
                     </button>
-                    <button className="cart__item_btn"
-                            // onClick={() => localStorage.clear()}>
-                            onClick={() => navigate(ROUTE.ORDER_FORM)}>
+                    <button className="cart__item_btn" onClick={() => navigate(ROUTE.ORDER_FORM)}>
                         Оформити замовлення
                     </button>
                 </div>
@@ -98,7 +83,3 @@ export const Cart = () => {
         </div>
     );
 };
-
-
-
-

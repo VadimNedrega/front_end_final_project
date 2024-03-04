@@ -6,9 +6,13 @@ import {FaUser, FaLock} from "react-icons/fa";
 import {Header, Footer} from "../../components";
 import {ROUTE} from "../../router";
 import {Link, useNavigate} from "react-router-dom";
+import { AuthButtons } from "../../components/Header/AuthButtons";
+import {loginSuccess} from "../../ducks/login.actions";
+import { useDispatch } from 'react-redux';
 
 export function LoginForm() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const initialValues = {
         username: "",
@@ -23,6 +27,7 @@ export function LoginForm() {
 
 
     const handleSubmit = () => {
+        dispatch(loginSuccess());
         navigate(ROUTE.HOME);
     }
 
@@ -72,6 +77,7 @@ export function LoginForm() {
                 </div>
             </div>
             <Footer/>
+            <AuthButtons handleSubmit={handleSubmit} />
         </div>
     );
 }

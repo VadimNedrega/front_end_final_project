@@ -22,7 +22,7 @@ export function SearchForm() {
                     </button>
                 </div>
             </div>
-            {searchMessage} {/* Simulate usage */}
+            {searchMessage}
         </form>
     );
 }
