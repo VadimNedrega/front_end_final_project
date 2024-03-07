@@ -9,7 +9,7 @@
 - category_id (FK linking to a **category** table)
 - image_url
 
-### Index Table
+### ProductsOfCategoryPage Table
 - category_id (PK)
 - name
 
