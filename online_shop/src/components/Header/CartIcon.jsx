@@ -1,45 +1,32 @@
-// import React from 'react';
-//
-// export const CartIcon = ({cartImageSrc}) => {
-//     const handleCartClick = () => {
-//         window.location.href = '/Cart';
-//     };
-//
-//     return (
-//         <a href="/Cart" onClick={handleCartClick}>
-//             <img
-//                 width="70px"
-//                 height="auto"
-//                 src={cartImageSrc}
-//                 alt="Cart"
-//                 className="cart-icon"
-//             />
-//         </a>
-//     );
-// };
-
-
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { IconButton, Badge } from '@mui/material';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { useNavigate } from 'react-router-dom';
 import { ROUTE } from '../../router';
+import { selectCart } from '../../ducks';
 
-export const CartIcon = ({ cartImageSrc }) => {
+export const CartIcon = () => {
     const navigate = useNavigate();
-
+    const cartItems = useSelector(selectCart);
+    const uniqueItemCount = new Set(cartItems.map(item => item.productKey)).size;
     const handleCartClick = () => {
         navigate(ROUTE.CART);
     };
 
     return (
-        <button className="cart-icon" onClick={handleCartClick}>
-            <img
-                width="70px"
-                height="auto"
-                src={cartImageSrc}
-                alt="Cart"
-            />
-        </button>
+        <Badge badgeContent={uniqueItemCount}
+               color="error"
+               sx={{mr: '3vw'}}
+        >
+            <IconButton
+                className="cart-icon"
+                onClick={handleCartClick}
+                aria-label="cart"
+                sx={{ padding: 0, transform: 'scale(1.4)', }}
+            >
+            <ShoppingCartOutlinedIcon />
+        </IconButton>
+        </Badge>
     );
 };
-
-
