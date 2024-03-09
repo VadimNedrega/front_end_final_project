@@ -1,8 +1,8 @@
 import React from 'react';
-import { App } from '../App';
-import { Products } from '../pages';
-import { Cart } from '../pages'
-import {Index} from "../pages";
+import {App} from '../App';
+import {Products} from '../pages';
+import {Cart} from '../pages'
+import {ProductsOfCategory} from "../pages";
 import {OrderForm} from "../pages";
 import {LoginForm} from "../pages";
 import {RegistrationForm} from "../pages";
@@ -43,7 +43,7 @@ export const ROUTE = {
 
 export const router = createBrowserRouter([
     {path: ROUTE.HOME, element: <App />,},
-    {path: ROUTE.CATEGORY_CURRENT, element: <Index />,},
+    {path: ROUTE.CATEGORY_CURRENT, element: <ProductsOfCategory />,},
     {path: ROUTE.PRODUCTS, element: <Products />,},
     {path: ROUTE.PRODUCT_CURRENT, element: <Products />,},
     {path: ROUTE.CART, element: <Cart />,},
