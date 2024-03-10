@@ -35,6 +35,7 @@ export function Header() {
                          border: '1px solid #ddd',
                          borderRadius: '1vw',
                          marginRight: '2rem',
+                         pl: '1vw',
                      }}
                 >
                     <DropDownMenu categories={categories} />
@@ -64,7 +65,7 @@ export function Header() {
                 </IconButton>
                 <SearchForm />
                 <Select
-                    value="en"
+                    value="ua"
                     onChange={(event) => handleLanguageChange(event.target.value)}
                     sx={{
                         backgroundColor: '#dea9a9',

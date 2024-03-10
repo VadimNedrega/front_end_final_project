@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, IconButton } from "@mui/material";
@@ -10,9 +9,12 @@ export function DropDownMenu({ categories }) {
     const [showDropdown, setShowDropdown] = useState(false);
     const [menuIcon, setMenuIcon] = useState(<MenuIcon />);
     const dropdownRef = useRef(null);
+    const categoryButtonRefs = useRef(Array(categories.length).fill(null));
     const [hoveredCategory, setHoveredCategory] = useState("");
     const [hoveredProducts, setHoveredProducts] = useState({});
+    const [productMenuPosition, setProductMenuPosition] = useState({ top: 0 });
     const navigate = useNavigate();
+    const screenHeight = window.innerHeight;
 
     useEffect(() => {
         const handleMouseLeave = () => {
@@ -35,12 +37,17 @@ export function DropDownMenu({ categories }) {
         };
     }, [dropdownRef]);
 
-    const handleListItemHover = (category) => {
+    const handleListItemHover = (category, index) => {
         if (category !== "Products") {
             const products =
                 rangeOfProducts.categories[category]?.Products || {};
             setHoveredCategory(category);
             setHoveredProducts(products);
+
+            const categoryButtonRect = categoryButtonRefs.current[index].getBoundingClientRect();
+            const productMenuTop =
+                categoryButtonRect.top + categoryButtonRect.height - 750*100/screenHeight;
+            setProductMenuPosition({ top: productMenuTop });
         }
     };
 
@@ -93,23 +100,23 @@ export function DropDownMenu({ categories }) {
                         marginTop: "-0.5vw",
                         marginLeft: "0.2vw",
                         zIndex: 1,
-
-
                     }}
                     ref={dropdownRef}
                 >
-                    {categories.map((category) => (
+                    {categories.map((category, index) => (
                         <IconButton
                             key={category}
-                            onMouseEnter={() => handleListItemHover(category)}
+                            onMouseEnter={() => handleListItemHover(category, index)}
                             onClick={() => handleCategoryClick(category)}
+                            ref={(el) => (categoryButtonRefs.current[index] = el)}
                             sx={{
                                 padding: "8px",
                                 fontSize: "24px",
                                 color: "#333",
                                 cursor: "pointer",
                                 transition: "background-color 0.3s ease",
-                                whiteSpace: "nowrap",
+                                whiteSpace: "normal",
+                                wordWrap: "break-word",
                                 "&:hover": {
                                     backgroundColor: "#f5f5f5",
                                 },
@@ -122,9 +129,9 @@ export function DropDownMenu({ categories }) {
                         <Box
                             sx={{
                                 position: "absolute",
-                                top: "10%",
+                                top: `${productMenuPosition.top*100/screenHeight}vh`,
                                 left: "100%",
-                                transform: "translateY(5%)",
+                                transform: "translateY(-5%)",
                                 display: "block",
                                 backgroundColor: "rgba(84, 102, 180, 0.9)",
                                 boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
@@ -133,7 +140,6 @@ export function DropDownMenu({ categories }) {
                                 marginTop: "-0.5vw",
                                 marginLeft: "0.2vw",
                                 zIndex: 1,
-
                             }}
                         >
                             {Object.keys(hoveredProducts).map((productKey) => (
@@ -147,6 +153,7 @@ export function DropDownMenu({ categories }) {
                                         cursor: "pointer",
                                         transition: "background-color 0.3s ease",
                                         whiteSpace: "nowrap",
+                                        wordWrap: "break-word",
                                         "&:hover": {
                                             backgroundColor: "#ece3a4",
                                         },
@@ -163,151 +170,5 @@ export function DropDownMenu({ categories }) {
     );
 }
 
-
-
-// import React, { useEffect, useRef, useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import { Box, MenuItem } from "@mui/material";
-// import { Menu as MenuIcon } from "@mui/icons-material";
-// import { rangeOfProducts } from "../../resources";
-// import { ROUTE } from "../../router";
-//
-// export function DropDownMenu({ categories }) {
-//     const [showDropdown, setShowDropdown] = useState(false);
-//     const dropdownRef = useRef(null);
-//     const [hoveredCategory, setHoveredCategory] = useState("");
-//     const [hoveredProducts, setHoveredProducts] = useState({});
-//     const navigate = useNavigate();
-//
-//     useEffect(() => {
-//         const handleMouseLeave = () => {
-//             setShowDropdown(false);
-//             setHoveredCategory("");
-//             setHoveredProducts({});
-//         };
-//
-//         const refCurrent = dropdownRef.current;
-//
-//         if (refCurrent) {
-//             refCurrent.addEventListener("mouseleave", handleMouseLeave);
-//         }
-//
-//         return () => {
-//             if (refCurrent) {
-//                 refCurrent.removeEventListener("mouseleave", handleMouseLeave);
-//             }
-//         };
-//     }, [dropdownRef]);
-//
-//     const handleListItemHover = (category) => {
-//         if (category !== "Products") {
-//             const products =
-//                 rangeOfProducts.categories[category]?.Products || {};
-//             setHoveredCategory(category);
-//             setHoveredProducts(products);
-//         }
-//     };
-//
-//     const handleCurrentItemHover = (productKey) => {
-//         navigate(`${ROUTE.PRODUCT_CURRENT.replace(":productKey", productKey)}`);
-//     };
-//
-//     const handleCategoryClick = (category) => {
-//         navigate(`${ROUTE.CATEGORY_CURRENT.replace(":category", category)}`);
-//     };
-//
-//     const handleButtonHover = () => {
-//         setShowDropdown(true);
-//     };
-//
-//     const handleHomeClick = () => {
-//         navigate(ROUTE.HOME);
-//     };
-//
-//     return (
-//         <Box sx={{ position: "relative" }} ref={dropdownRef}>
-//             <MenuItem
-//                 className={`header__btn header__btn_common header__btn_secondary ${
-//                     showDropdown ? "active" : ""
-//                 }`}
-//                 onClick={handleButtonHover}
-//             >
-//                 Товари
-//             </MenuItem>
-//             {showDropdown && (
-//                 <Box
-//                     sx={{
-//                         position: "absolute",
-//                         top: "100%",
-//                         left: 0,
-//                         display: "block",
-//                         bgcolor: "#5466b4",
-//                         boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-//                         border: "1px solid #ddd",
-//                         borderRadius: "4px",
-//                         zIndex: 1,
-//                     }}
-//                 >
-//                     {categories.map((category) => (
-//                         <MenuItem
-//                             key={category}
-//                             onMouseEnter={() => handleListItemHover(category)}
-//                             onClick={() => handleCategoryClick(category)}
-//                             sx={{
-//                                 padding: "8px",
-//                                 fontSize: "24px",
-//                                 color: "#333",
-//                                 cursor: "pointer",
-//                                 transition: "background-color 0.3s ease",
-//                                 whiteSpace: "nowrap",
-//                                 "&:hover": {
-//                                     backgroundColor: "#f5f5f5",
-//                                 },
-//                             }}
-//                         >
-//                             {category}
-//                         </MenuItem>
-//                     ))}
-//                     {hoveredCategory !== "" && (
-//                         <Box
-//                             sx={{
-//                                 position: "absolute",
-//                                 top: 0,
-//                                 left: "100%",
-//                                 display: "block",
-//                                 bgcolor: "#8cafd5",
-//                                 boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-//                                 border: "1px solid #ddd",
-//                                 borderRadius: "4px",
-//                                 marginTop: "-0.5vw",
-//                                 marginLeft: "0.2vw",
-//                                 zIndex: 1,
-//                             }}
-//                         >
-//                             {Object.keys(hoveredProducts).map((productKey) => (
-//                                 <MenuItem
-//                                     key={productKey}
-//                                     onClick={() => handleCurrentItemHover(productKey)}
-//                                     sx={{
-//                                         padding: "8px",
-//                                         fontSize: "24px",
-//                                         color: "#333",
-//                                         cursor: "pointer",
-//                                         transition: "background-color 0.3s ease",
-//                                         "&:hover": {
-//                                             backgroundColor: "#ece3a4",
-//                                         },
-//                                     }}
-//                                 >
-//                                     {productKey}
-//                                 </MenuItem>
-//                             ))}
-//                         </Box>
-//                     )}
-//                 </Box>
-//             )}
-//         </Box>
-//     );
-// }
 
 
