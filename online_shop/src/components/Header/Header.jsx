@@ -44,9 +44,3 @@ export function Header() {
         </div>
     );
 }
-
-
-
-
-
-

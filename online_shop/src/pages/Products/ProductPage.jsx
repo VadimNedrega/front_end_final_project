@@ -100,9 +100,3 @@ const getProductDetails = (productKey) => {
     }
     return null;
 };
-
-
-
-
-
-

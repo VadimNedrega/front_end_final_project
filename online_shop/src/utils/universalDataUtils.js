@@ -1,7 +1,7 @@
 import  {saveCartItemToLocalStorage, clearLocalStorage, removeCartItemFromLocalStorage,
          getCartItemsFromLocalStorage} from './localStorageUtils';
 import {saveCartItemToReduxStore, removeCartItemFromReduxStore, getCartItemsFromReduxStore,
-        clearReduxStore} from '../../../ducks';
+        clearReduxStore} from '../ducks';
 
 export const dataFunc = (typeOfRepo, action, params=[]) => {
     const actions = {
@@ -18,9 +18,6 @@ export const dataFunc = (typeOfRepo, action, params=[]) => {
             clearRepo: clearReduxStore,
         },
     };
-
-    // console.log(actions[typeOfRepo][action]);
-    // console.log('params = ',...params);
 
     if (actions[typeOfRepo] && actions[typeOfRepo][action]) {
         console.log()
