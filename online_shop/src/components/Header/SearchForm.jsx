@@ -1,13 +1,16 @@
 
 import React, { useState } from 'react';
-import { Button, Box, TextField} from '@mui/material';
+import { Button, Box, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import { useNavigate } from 'react-router-dom';
 
 export function SearchForm() {
     const [search, setSearch] = useState("");
+    const navigate = useNavigate();
+
     const handleSearch = (event) => {
         event.preventDefault();
-        console.log('SearchForm   ', {search}.search)
+        navigate(`/search/${search}`);
         setSearch("");
     };
 
@@ -45,3 +48,4 @@ export function SearchForm() {
         </Box>
     );
 }
+
