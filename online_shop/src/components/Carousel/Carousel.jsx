@@ -10,11 +10,11 @@ export const Carousel = ({images, interval = 3500}) => {
             prevIndex === images.length - 1 ? 0 : prevIndex + 1
         );
     };
-    const prevSlide = () => {
-        setActiveIndex((prevIndex) =>
-            prevIndex === 0 ? images.length - 1 : prevIndex - 1
-        );
-    };
+    // const prevSlide = () => {
+    //     setActiveIndex((prevIndex) =>
+    //         prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    //     );
+    // };
 
     //Adds autoscroll to the slider
     useEffect(() => {
