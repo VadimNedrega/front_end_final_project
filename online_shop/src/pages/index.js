@@ -15,3 +15,4 @@ export * from "./CareerPage";
 export * from "./FaqPage";
 export * from "./ReturnsPage";
 export * from "./ServiceCenterPage";
+export * from "./SearchPage/SearchPage";

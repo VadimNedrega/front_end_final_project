@@ -54,7 +54,7 @@ export const ProductsOfCategory = () => {
                                         {product.productKey}
                                     </Typography>
                                     <Typography variant="body2" color="text.secondary">
-                                        Price: {product.Price}
+                                        Ціна: {product.Price}
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>

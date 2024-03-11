@@ -1,20 +1,27 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Box, IconButton } from "@mui/material";
+import { Menu as MenuIcon, Close as CloseIcon } from "@mui/icons-material";
 import { rangeOfProducts } from "../../resources";
-import {ROUTE} from '../../router';
+import { ROUTE } from "../../router";
 
 export function DropDownMenu({ categories }) {
     const [showDropdown, setShowDropdown] = useState(false);
+    const [menuIcon, setMenuIcon] = useState(<MenuIcon />);
     const dropdownRef = useRef(null);
+    const categoryButtonRefs = useRef(Array(categories.length).fill(null));
     const [hoveredCategory, setHoveredCategory] = useState("");
     const [hoveredProducts, setHoveredProducts] = useState({});
+    const [productMenuPosition, setProductMenuPosition] = useState({ top: 0 });
     const navigate = useNavigate();
+    const screenHeight = window.innerHeight;
 
     useEffect(() => {
         const handleMouseLeave = () => {
             setShowDropdown(false);
             setHoveredCategory("");
             setHoveredProducts({});
+            setMenuIcon(<MenuIcon />);
         };
 
         const refCurrent = dropdownRef.current;
@@ -30,12 +37,17 @@ export function DropDownMenu({ categories }) {
         };
     }, [dropdownRef]);
 
-    const handleListItemHover = (category) => {
+    const handleListItemHover = (category, index) => {
         if (category !== "Products") {
             const products =
                 rangeOfProducts.categories[category]?.Products || {};
             setHoveredCategory(category);
             setHoveredProducts(products);
+
+            const categoryButtonRect = categoryButtonRefs.current[index].getBoundingClientRect();
+            const productMenuTop =
+                categoryButtonRect.top + categoryButtonRect.height - 750*100/screenHeight;
+            setProductMenuPosition({ top: productMenuTop });
         }
     };
 
@@ -44,61 +56,119 @@ export function DropDownMenu({ categories }) {
     };
 
     const handleCategoryClick = (category) => {
-        console.log(category);
         navigate(`${ROUTE.CATEGORY_CURRENT.replace(":category", category)}`);
     };
 
     const handleButtonHover = () => {
-        setShowDropdown(true);
-    };
-
-    const handleHomeClick = () => {
-        navigate(ROUTE.HOME);
+        setShowDropdown(prevState => !prevState);
+        setMenuIcon(prevIcon => (!showDropdown ? <CloseIcon /> : <MenuIcon />));
     };
 
     return (
-        <div className="header__dropdown_container" ref={dropdownRef}>
-            <button
-                className={`header__btn header__btn_home header__btn_secondary ${
-                    showDropdown ? "active" : ""
+        <Box sx={{ position: "relative" }} ref={dropdownRef}>
+            <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="open drawer"
+                sx={{
+                    mr: 2,
+                    color: 'white',
+                    cursor: 'pointer',
+                    transition: 'background-color 0.3s ease',
+                    whiteSpace: 'nowrap',
+                }}
+                className={`header__btn  header__btn_secondary header__dropdown_component ${
+                    showDropdown ? 'active' : ''
                 }`}
-                onClick={handleHomeClick}
+                onClick={handleButtonHover}
             >
-                Головна
-            </button>
-            <button
-                className={`header__btn header__btn_common header__btn_secondary ${
-                    showDropdown ? "active" : ""
-                }`}
-                onMouseEnter={handleButtonHover}
-            >
-                Товари
-            </button>
+                {menuIcon}
+            </IconButton>
+
             {showDropdown && (
-                <div className="header__dropdown_list">
-                    {categories.map((category) => (
-                        <div
+                <Box
+                    sx={{
+                        position: "absolute",
+                        top: "100%",
+                        left: "0%",
+                        display: "block",
+                        backgroundColor: "rgba(84, 102, 180, 0.9)",
+                        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                        border: "1px solid #ddd",
+                        borderRadius: "4px",
+                        marginTop: "-0.5vw",
+                        marginLeft: "0.2vw",
+                        zIndex: 1,
+                    }}
+                    ref={dropdownRef}
+                >
+                    {categories.map((category, index) => (
+                        <IconButton
                             key={category}
-                            onMouseEnter={() => handleListItemHover(category)}
+                            onMouseEnter={() => handleListItemHover(category, index)}
                             onClick={() => handleCategoryClick(category)}
+                            ref={(el) => (categoryButtonRefs.current[index] = el)}
+                            sx={{
+                                padding: "8px",
+                                fontSize: "24px",
+                                color: "#333",
+                                cursor: "pointer",
+                                transition: "background-color 0.3s ease",
+                                whiteSpace: "normal",
+                                wordWrap: "break-word",
+                                "&:hover": {
+                                    backgroundColor: "#f5f5f5",
+                                },
+                            }}
                         >
                             {category}
-                        </div>
+                        </IconButton>
                     ))}
                     {hoveredCategory !== "" && (
-                        <div className="header__product_list">
+                        <Box
+                            sx={{
+                                position: "absolute",
+                                top: `${productMenuPosition.top*100/screenHeight}vh`,
+                                left: "100%",
+                                transform: "translateY(-5%)",
+                                display: "block",
+                                backgroundColor: "rgba(84, 102, 180, 0.9)",
+                                boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                                border: "1px solid #ddd",
+                                borderRadius: "4px",
+                                marginTop: "-0.5vw",
+                                marginLeft: "0.2vw",
+                                zIndex: 1,
+                            }}
+                        >
                             {Object.keys(hoveredProducts).map((productKey) => (
-                                <div
+                                <IconButton
                                     key={productKey}
                                     onClick={() => handleCurrentItemHover(productKey)}
+                                    sx={{
+                                        padding: "8px",
+                                        fontSize: "24px",
+                                        color: "#333",
+                                        cursor: "pointer",
+                                        transition: "background-color 0.3s ease",
+                                        whiteSpace: "nowrap",
+                                        wordWrap: "break-word",
+                                        "&:hover": {
+                                            backgroundColor: "#ece3a4",
+                                        },
+                                    }}
                                 >
                                     {productKey}
-                                </div>
+                                </IconButton>
                             ))}
-                        </div>
+                        </Box>
                     )}
-                </div>
+                </Box>
             )}
-        </div>
+        </Box>
     );
 }
+
+
+

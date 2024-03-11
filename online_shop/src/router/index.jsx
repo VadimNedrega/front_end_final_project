@@ -16,6 +16,7 @@ import {CareerPage} from "../pages";
 import {FaqPage} from "../pages";
 import {ReturnsPage} from "../pages";
 import {ServiceCenterPage} from "../pages";
+import {SearchPage} from "../pages"
 
 import {createBrowserRouter,} from "react-router-dom";
 
@@ -39,6 +40,7 @@ export const ROUTE = {
     FAQ: "/faq",
     RETURNS: "/returns",
     SERVICE_CENTER: "/service-center",
+    SEARCH_RESULTS: "/search/:searchParam",
 };
 
 export const router = createBrowserRouter([
@@ -60,6 +62,7 @@ export const router = createBrowserRouter([
     {path: ROUTE.FAQ, element: <FaqPage />,},
     {path: ROUTE.RETURNS, element: <ReturnsPage />,},
     {path: ROUTE.SERVICE_CENTER, element: <ServiceCenterPage />,},
+    {path: ROUTE.SEARCH_RESULTS, element: <SearchPage /> },
 ]);
 
 

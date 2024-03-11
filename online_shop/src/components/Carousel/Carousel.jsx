@@ -41,3 +41,5 @@ export const Carousel = ({images, interval = 3500}) => {
         </div>
     );
 };
+
+
