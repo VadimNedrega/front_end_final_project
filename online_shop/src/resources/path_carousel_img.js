@@ -6,8 +6,3 @@ export const images = [
     'https://images.prom.ua/4672623763_4672623763.jpg',
     'https://images.prom.ua/4672666102_4672666102.jpg'
 ];
-
-// export const config = {
-//     'storeUtility': 'LocalStorage',
-//     //'storeUtility': 'ReduxStore',
-// }
